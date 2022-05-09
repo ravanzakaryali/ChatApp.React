@@ -1,8 +1,13 @@
-import React from 'react'
+import React, { useContext } from 'react'
+import { useOutletContext } from 'react-router-dom';
+import Chat from '../chat/Chat';
 
 const Home = () => {
+    const context = useOutletContext();
     return (
-        <div>Home Page</div>
+        <>
+            <Chat connection={context} />
+        </>
     )
 }
 

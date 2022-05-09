@@ -14,7 +14,7 @@ const PrivateRouter = () => {
         setConnection(newConnection);
     }, []);
 
-    return <Outlet />
+    return <Outlet context={connection} />
 }
 
 export default PrivateRouter
