@@ -8,9 +8,10 @@ const PrivateRouter = () => {
         const server = 'https://localhost:5001/chathub'
         const newConnection = new HubConnectionBuilder()
             .withUrl(server)
-            .withAutomaticReconnect()
+            .withAutomaticReconnect([1000, 2000, 3000])
             .configureLogging(LogLevel.Information)
             .build();
+
         setConnection(newConnection);
     }, []);
 

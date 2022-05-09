@@ -4,6 +4,7 @@ const Messages = (props) => {
     const connection = props.connection;
     const intialArray = [];
     const [chat, setChat] = useState(intialArray);
+    const [user, setUser] = useState();
     useEffect(() => {
         connection
             .start()
@@ -12,15 +13,35 @@ const Messages = (props) => {
                     setChat([...intialArray, message]);
                     intialArray.push(message);
                 });
+                connection.on('getClients', user => {
+                    setUser(user);
+                })
             }).catch((error) => console.error(error));
     }, [])
 
     return (
-        chat?.map((chat, index) => (
-            <div key={index}>
-                {chat}
-            </div>
-        ))
+        <>
+            <h3>
+                Messages
+            </h3>
+            {
+                chat?.map((chat, index) => (
+                    <div key={index}>
+                        {chat}
+                    </div>
+                ))
+            }
+            <h3>
+                Online Users
+            </h3>
+            {
+                user?.map((user, index) => (
+                    <div key={index}>
+                        {user}
+                    </div>
+                ))
+            }
+        </>
     )
 }
 
