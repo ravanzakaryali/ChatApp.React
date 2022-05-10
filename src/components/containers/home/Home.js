@@ -3,6 +3,7 @@ import { useOutletContext } from 'react-router-dom';
 import Chat from '../chat/Chat';
 import Messages from '../chat/Messages';
 import Event from '../chat/Event';
+import Connection from '../chat/Connection';
 
 const Home = () => {
     const context = useOutletContext();

@@ -9,11 +9,11 @@ const Messages = (props) => {
         connection
             .start()
             .then(() => {
-                connection.on('receiveMessage', message => {
+                connection.on('ReceiveMessage', message => {
                     setChat([...intialArray, message]);
                     intialArray.push(message);
                 });
-                connection.on('getClients', user => {
+                connection.on('GetClients', user => {
                     setUser(user);
                 })
             }).catch((error) => console.error(error));
