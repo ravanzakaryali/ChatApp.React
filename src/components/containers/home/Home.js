@@ -9,6 +9,7 @@ const Home = () => {
     const context = useOutletContext();
     return (
         <>
+            <Connection connection={context} />
             <Event connection={context} />
             <Chat connection={context} />
             <Messages connection={context} />
