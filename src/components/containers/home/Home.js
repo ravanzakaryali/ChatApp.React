@@ -4,11 +4,13 @@ import Chat from '../chat/Chat';
 import Messages from '../chat/Messages';
 import Event from '../chat/Event';
 import Connection from '../chat/Connection';
+import Sidebar from '../../sidebar/Sidebar';
 
 const Home = () => {
     const context = useOutletContext();
     return (
         <>
+            <Sidebar />
             <Connection connection={context} />
             <Event connection={context} />
             <Chat connection={context} />
