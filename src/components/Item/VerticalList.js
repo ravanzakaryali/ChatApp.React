@@ -12,7 +12,8 @@ const VerticalList = styled(Paper)(({ theme }) => ({
     minWidth: 75,
     flexDirection: 'column',
     height: "100vh",
-    display: "flex"
+    display: "flex",
+    fontSize: 20
 }))
 
 export default VerticalList;

@@ -7,4 +7,22 @@ export const theme = createTheme({
             light: "#681cc6"
         }
     },
+    components: {
+        MuiListItemButton: {
+            styleOverrides: {
+                root: {
+                    flexGrow: "0"
+                }
+            }
+        },
+        MuiCssBaseline: {
+            styleOverrides: {
+                body: {
+                    margin: 0,
+                    padding: 0,
+                    boxSizing: 'border-box',
+                },
+            }
+        }
+    },
 })

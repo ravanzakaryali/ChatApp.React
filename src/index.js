@@ -1,3 +1,4 @@
+import { ScopedCssBaseline } from '@mui/material';
 import { ThemeProvider } from '@emotion/react';
 import React from 'react';
 import ReactDOM from 'react-dom/client';

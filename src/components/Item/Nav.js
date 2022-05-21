@@ -1,9 +1,12 @@
+import styled from '@emotion/styled';
+import { Navigation } from '@mui/icons-material';
+import { Tabs } from '@mui/material';
 import React from 'react'
 
-const Nav = () => {
-    return (
-        <div>Nav</div>
-    )
-}
+const Nav = styled('nav')(({ theme }) => ({
+    display: "flex",
+    flexDirection: "column"
+}))
 
-export default Nav
+
+export default Nav;
