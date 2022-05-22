@@ -6,13 +6,10 @@ import { AiOutlineSetting } from 'react-icons/ai'
 import { MdLanguage } from 'react-icons/md'
 import { HiOutlineMoon } from 'react-icons/hi'
 import React from 'react'
-import { List, ListItem, ListItemButton, ListItemIcon } from '@mui/material'
-import Row from '../Item/Row'
+import { ListItemButton } from '@mui/material'
 import VerticalList from '../Item/VerticalList';
 import Nav from '../Item/Nav';
-import { Link } from 'react-router-dom';
 import LinkFlex from '../Item/LinkFlex';
-import { createStyled } from '@mui/system';
 
 const Sidebar = () => {
     return (

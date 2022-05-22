@@ -1,6 +1,5 @@
-import React from 'react'
 import styled from '@emotion/styled';
-import { List, ListItem, Paper } from '@mui/material';
+import { Paper } from '@mui/material';
 import { grey } from '@mui/material/colors'
 
 

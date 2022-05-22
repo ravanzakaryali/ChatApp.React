@@ -1,6 +1,5 @@
 import styled from '@emotion/styled'
-import { Grid, Paper } from '@mui/material'
-import React from 'react'
+import { Grid } from '@mui/material'
 
 const Row = styled(Grid)(({ theme }) => ({
 }))

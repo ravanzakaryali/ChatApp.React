@@ -8,6 +8,7 @@ import Sidebar from '../../components/sidebar/Sidebar';
 import Row from '../../components/Item/Row';
 import Col from '../../components/Item/Col';
 import { Grid } from '@mui/material';
+import ChatsSidebar from '../../components/Chats/ChatsSidebar';
 
 const Home = () => {
     const context = useOutletContext();
@@ -16,13 +17,15 @@ const Home = () => {
             <Grid item xs={.5}>
                 <Sidebar />
             </Grid>
-            <Grid item xs={4}>
+            <Grid item xs={3}>
+                <ChatsSidebar />
+            </Grid>
+            <Grid item xs={8.5}>
                 <div style={{
                     width: "100%",
                     height: "100%",
-                    backgroundColor: 'red'
+                    backgroundColor: 'blue'
                 }}>
-
                 </div>
             </Grid>
             {/* <Connection connection={context} />
