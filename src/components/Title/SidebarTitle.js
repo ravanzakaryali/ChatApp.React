@@ -1,18 +1,20 @@
 import { Grid, Typography } from '@mui/material'
 import React from 'react'
 import Row from '../Item/Row'
+import SearchAppBar from './Search'
 
 const SidebarTitle = ({ title }) => {
     return (
-        <Row sx={{
-            padding: "20px 0"
-        }}>
-            <Grid item xs={6}>
+        <Row>
+            <Grid item xs={6} sx={{
+                padding: "20px 0"
+            }} >
                 <Typography variant='h2' sx={{
                     fontSize: "22px",
-                    fontWeight: 'bold'
+                    fontWeight: '500'
                 }}>{title}</Typography>
             </Grid>
+            <SearchAppBar />
         </Row>
     )
 }
