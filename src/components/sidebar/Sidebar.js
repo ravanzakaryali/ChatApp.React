@@ -17,7 +17,7 @@ const Sidebar = () => {
             <VerticalItem>
                 <ListItemButton>
                     <LinkFlex to="/">
-                        <RiUser3Line />
+                        <DiSenchatouch />
                     </LinkFlex>
                 </ListItemButton>
             </VerticalItem>
@@ -30,7 +30,7 @@ const Sidebar = () => {
                     </ListItemButton>
                     <ListItemButton>
                         <LinkFlex to="/">
-                            <DiSenchatouch />
+                            <RiUser3Line />
                         </LinkFlex>
                     </ListItemButton>
                     <ListItemButton>
