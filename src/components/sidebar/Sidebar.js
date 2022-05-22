@@ -10,35 +10,50 @@ import { List, ListItem, ListItemButton, ListItemIcon } from '@mui/material'
 import Row from '../Item/Row'
 import VerticalList from '../Item/VerticalList';
 import Nav from '../Item/Nav';
+import { Link } from 'react-router-dom';
+import LinkFlex from '../Item/LinkFlex';
+import { createStyled } from '@mui/system';
 
 const Sidebar = () => {
     return (
         <VerticalList>
             <VerticalItem>
                 <ListItemButton>
-                    <RiUser3Line />
+                    <LinkFlex to="/">
+                        <RiUser3Line />
+                    </LinkFlex>
                 </ListItemButton>
             </VerticalItem>
             <VerticalItem sx={{ margin: "auto" }}>
                 <Nav orientation='vertical' >
                     <ListItemButton>
-                        <IoChatbubbleEllipsesOutline />
+                        <LinkFlex to="/">
+                            <IoChatbubbleEllipsesOutline />
+                        </LinkFlex>
                     </ListItemButton>
                     <ListItemButton>
-                        <DiSenchatouch />
+                        <LinkFlex to="/">
+                            <DiSenchatouch />
+                        </LinkFlex>
                     </ListItemButton>
                     <ListItemButton>
-                        <AiOutlineSetting />
+                        <LinkFlex to="/">
+                            <AiOutlineSetting />
+                        </LinkFlex>
                     </ListItemButton>
                 </Nav>
             </VerticalItem>
             <VerticalItem>
                 <Nav orientation='vertical' >
                     <ListItemButton>
-                        <MdLanguage />
+                        <LinkFlex to="/">
+                            <MdLanguage />
+                        </LinkFlex>
                     </ListItemButton>
                     <ListItemButton>
-                        <HiOutlineMoon />
+                        <LinkFlex to="/">
+                            <HiOutlineMoon />
+                        </LinkFlex>
                     </ListItemButton>
                 </Nav>
             </VerticalItem>
