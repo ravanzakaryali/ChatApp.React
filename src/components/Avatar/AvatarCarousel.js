@@ -1,13 +1,15 @@
-import { Avatar, AvatarGroup, Badge } from '@mui/material';
+import { BrokenImage } from '@mui/icons-material';
+import { Avatar, AvatarGroup, Badge, Paper, Typography } from '@mui/material';
 import { styled } from '@mui/system';
 import React from 'react'
+import Row from '../Item/Row';
 const data = [
     {
         name: "Revan",
-        url: "https://picsum.photos/200/300",
+        url: null,
     },
     {
-        name: "Mammad",
+        name: "MammadMammadMammad",
         url: "https://picsum.photos/200/301"
     },
     {
@@ -36,7 +38,7 @@ const data = [
     },
     {
         name: "JeyJey",
-        url: "https://picsum.photos/201/301"
+        url: null
     }
 ]
 
@@ -73,26 +75,49 @@ const StyledBadge = styled(Badge)(({ theme }) => ({
 
 const AvatarCarousel = () => {
     return (
-        <AvatarGroup sx={{
-            justifyContent: "start",
-            padding: "20px 0"
-        }} max={7} total={data.length}>{
+        <Row sx={{
+            margin: "20px 0px"
+        }}>
+            {
                 data?.map((user, index) => (
-                    <StyledBadge
+                    <Paper
                         key={index}
-                        overlap='circular'
-                        anchorOrigin={{ vertical: 'bottom', horizontal: 'right', }}
-                        variant='dot'
-                    >
-                        <Avatar
-                            alt={user.name}
-                            src={user.url}
-                            sx={{ width: 56, height: 56 }}
-                        />
-                    </StyledBadge>
+                        elevation={3} sx={{
+                            padding: 1,
+                            margin: "0px 4px",
+                            width: 80,
+                            display: 'flex',
+                            flexWrap: "wrap",
+                            justifyContent: "center",
+                            textAlign: "center"
+                        }}>
+                        <StyledBadge
+                            overlap='circular'
+                            anchorOrigin={{ vertical: 'bottom', horizontal: 'right', }}
+                            variant='dot'
+                        >
+                            <Avatar
+
+                                alt={user.name}
+                                src={user.url ? user.url : BrokenImage.toString()}
+                                sx={{ width: 42, height: 42 }}
+                            />
+                        </StyledBadge>
+                        <Typography sx={{
+                            width: "100%",
+                            paddingTop: .5,
+                            fontSize: "13px",
+                            color: 'grey',
+                            overflow: "hidden",
+                            textOverflow: "ellipsis",
+                            whiteSpace: "nowrap"
+                        }}>
+                            {user.name}
+                        </Typography>
+                    </Paper>
                 ))
             }
-        </AvatarGroup>
+        </Row >
     )
 }
 
