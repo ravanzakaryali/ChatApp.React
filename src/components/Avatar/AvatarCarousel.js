@@ -3,13 +3,18 @@ import { Avatar, AvatarGroup, Badge, Paper, Typography } from '@mui/material';
 import { styled } from '@mui/system';
 import React from 'react'
 import Row from '../Item/Row';
+import { Swiper, SwiperSlide } from 'swiper/react'
+import { FreeMode, Pagination } from "swiper";
+import "swiper/css";
+import "swiper/css/pagination";
+
 const data = [
     {
         name: "Revan",
         url: null,
     },
     {
-        name: "MammadMammadMammad",
+        name: "Mamed",
         url: "https://picsum.photos/200/301"
     },
     {
@@ -74,50 +79,64 @@ const StyledBadge = styled(Badge)(({ theme }) => ({
 
 
 const AvatarCarousel = () => {
+
     return (
         <Row sx={{
-            margin: "20px 0px"
+            margin: "20px 0px",
         }}>
-            {
-                data?.map((user, index) => (
-                    <Paper
-                        key={index}
-                        elevation={3} sx={{
-                            padding: 1,
-                            margin: "0px 4px",
-                            width: 80,
-                            display: 'flex',
-                            flexWrap: "wrap",
-                            justifyContent: "center",
-                            textAlign: "center"
-                        }}>
-                        <StyledBadge
-                            overlap='circular'
-                            anchorOrigin={{ vertical: 'bottom', horizontal: 'right', }}
-                            variant='dot'
+            <Swiper
+                slidesPerView={4.2}
+                pagination={{
+                    clickable: true,
+                }}
+            >
+                {
+                    data?.map((user, index) => (
+                        <SwiperSlide
+                            key={index}
+                            style={{
+                                padding: "5px 0px"
+                            }}
                         >
-                            <Avatar
+                            <Paper
+                                elevation={3} sx={{
+                                    padding: "5px 2px",
+                                    margin: "0px 4px",
+                                    width: 70,
+                                    display: 'flex',
+                                    flexWrap: "wrap",
+                                    justifyContent: "center",
+                                    textAlign: "center"
+                                }}>
+                                <StyledBadge
+                                    overlap='circular'
+                                    anchorOrigin={{ vertical: 'bottom', horizontal: 'right', }}
+                                    variant='dot'
+                                >
+                                    <Avatar
 
-                                alt={user.name}
-                                src={user.url ? user.url : BrokenImage.toString()}
-                                sx={{ width: 42, height: 42 }}
-                            />
-                        </StyledBadge>
-                        <Typography sx={{
-                            width: "100%",
-                            paddingTop: .5,
-                            fontSize: "13px",
-                            color: 'grey',
-                            overflow: "hidden",
-                            textOverflow: "ellipsis",
-                            whiteSpace: "nowrap"
-                        }}>
-                            {user.name}
-                        </Typography>
-                    </Paper>
-                ))
-            }
-        </Row >
+                                        alt={user.name}
+                                        src={user.url ? user.url : BrokenImage.toString()}
+                                        sx={{ width: 42, height: 42 }}
+                                    />
+                                </StyledBadge>
+                                <Typography sx={{
+                                    width: "100%",
+                                    paddingTop: .5,
+                                    fontSize: "13px",
+                                    color: 'grey',
+                                    overflow: "hidden",
+                                    textOverflow: "ellipsis",
+                                    whiteSpace: "nowrap"
+                                }}>
+                                    {user.name}
+                                </Typography>
+                            </Paper>
+                        </SwiperSlide>
+                    ))
+                }
+            </Swiper>
+        </Row>
     )
 }
 
