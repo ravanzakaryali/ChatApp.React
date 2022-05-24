@@ -10,6 +10,7 @@ import Col from '../../components/Item/Col';
 import { Grid } from '@mui/material';
 import ChatsSidebar from '../../components/Chats/ChatsSidebar';
 import ChatUser from '../../components/Chats/ChatUser';
+import ChatUserList from '../../components/Chats/ChatUserList';
 
 const Home = () => {
     const context = useOutletContext();
@@ -20,11 +21,7 @@ const Home = () => {
             </Grid>
             <Grid item xs={3}>
                 <ChatsSidebar />
-                <ChatUser user={{
-                    name: "Mamed",
-                    url: "https://picsum.photos/200/301",
-                    message: "Salam necəsən?"
-                }} />
+                <ChatUserList />
             </Grid>
             <Grid item xs={8.5}>
                 <div style={{
