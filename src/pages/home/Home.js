@@ -9,6 +9,7 @@ import Row from '../../components/Item/Row';
 import Col from '../../components/Item/Col';
 import { Grid } from '@mui/material';
 import ChatsSidebar from '../../components/Chats/ChatsSidebar';
+import ChatUser from '../../components/Chats/ChatUser';
 
 const Home = () => {
     const context = useOutletContext();
@@ -19,6 +20,11 @@ const Home = () => {
             </Grid>
             <Grid item xs={3}>
                 <ChatsSidebar />
+                <ChatUser user={{
+                    name: "Mamed",
+                    url: "https://picsum.photos/200/301",
+                    message: "Salam necəsən?"
+                }} />
             </Grid>
             <Grid item xs={8.5}>
                 <div style={{
@@ -27,6 +33,8 @@ const Home = () => {
                     backgroundColor: 'blue'
                 }}>
                 </div>
+            </Grid>
+            <Grid>
             </Grid>
             {/* <Connection connection={context} />
             <Event connection={context} />

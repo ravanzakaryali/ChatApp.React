@@ -7,6 +7,8 @@ import { Swiper, SwiperSlide } from 'swiper/react'
 import { FreeMode, Pagination } from "swiper";
 import "swiper/css";
 import "swiper/css/pagination";
+import StyledBadge from './StyledBadge';
+import AvatarOnline from './AvatarOnline';
 
 const data = [
     {
@@ -47,36 +49,6 @@ const data = [
     }
 ]
 
-const StyledBadge = styled(Badge)(({ theme }) => ({
-    '& .MuiBadge-badge': {
-        backgroundColor: '#44b700',
-        color: '#44b700',
-        boxShadow: `0 0 0 2px ${theme.palette.background.paper}`,
-        '&::after': {
-            position: 'absolute',
-            top: 0,
-            left: 0,
-            width: '100%',
-            height: '100%',
-            borderRadius: '50%',
-            animation: 'ripple 1.2s infinite ease-in-out',
-            border: '1px solid currentColor',
-            content: '""',
-        },
-    },
-    '@keyframes ripple': {
-        '0%': {
-            transform: 'scale(.8)',
-            opacity: 1,
-        },
-        '100%': {
-            transform: 'scale(2.4)',
-            opacity: 0,
-        },
-    },
-}));
-
-
 
 const AvatarCarousel = () => {
 
@@ -108,18 +80,7 @@ const AvatarCarousel = () => {
                                     justifyContent: "center",
                                     textAlign: "center"
                                 }}>
-                                <StyledBadge
-                                    overlap='circular'
-                                    anchorOrigin={{ vertical: 'bottom', horizontal: 'right', }}
-                                    variant='dot'
-                                >
-                                    <Avatar
-
-                                        alt={user.name}
-                                        src={user.url ? user.url : BrokenImage.toString()}
-                                        sx={{ width: 42, height: 42 }}
-                                    />
-                                </StyledBadge>
+                                <AvatarOnline user={user} />
                                 <Typography sx={{
                                     width: "100%",
                                     paddingTop: .5,
