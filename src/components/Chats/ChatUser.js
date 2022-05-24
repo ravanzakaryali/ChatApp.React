@@ -1,7 +1,6 @@
-import { Avatar, TextField, Typography } from '@mui/material'
+import { Typography } from '@mui/material'
 import { Container } from '@mui/system'
 import React from 'react'
-import { Link } from 'react-router-dom'
 import AvatarOnline from '../Avatar/AvatarOnline'
 import ChatUserContent from '../Item/ChatUserContent'
 import LinkFlex from '../Item/LinkFlex'
@@ -33,7 +32,6 @@ const ChatUser = ({ user }) => {
                 </Row>
             </Container>
         </LinkFlex>
-
     )
 }
 
