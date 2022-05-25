@@ -7,6 +7,10 @@ import { Grid, ListItemButton } from '@mui/material'
 import Nav from '../Item/Nav'
 import LinkFlex from '../Item/LinkFlex'
 import ChatNavButton from '../Item/ChatNavButton'
+import { BiSearch } from 'react-icons/bi'
+import { IoCallOutline } from 'react-icons/io5';
+import { AiOutlineVideoCamera } from 'react-icons/ai';
+import { RiContactsLine } from 'react-icons/ri'
 
 const ChatHeader = () => {
     return (
@@ -26,17 +30,17 @@ const ChatHeader = () => {
                     }}>
                         <ChatNavButton>
                             <LinkFlex to="/">
-                                <IoChatbubbleEllipsesOutline />
+                                <BiSearch />
                             </LinkFlex>
                         </ChatNavButton>
                         <ChatNavButton>
                             <LinkFlex to="/">
-                                <IoChatbubbleEllipsesOutline />
+                                <IoCallOutline />
                             </LinkFlex>
                         </ChatNavButton>
                         <ChatNavButton>
                             <LinkFlex to="/">
-                                <IoChatbubbleEllipsesOutline />
+                                <AiOutlineVideoCamera />
                             </LinkFlex>
                         </ChatNavButton>
                         <ChatNavButton>
