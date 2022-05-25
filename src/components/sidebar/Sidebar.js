@@ -22,7 +22,7 @@ const Sidebar = () => {
                 </ListItemButton>
             </VerticalItem>
             <VerticalItem sx={{ margin: "auto" }}>
-                <Nav orientation='vertical' >
+                <Nav >
                     <ListItemButton>
                         <LinkFlex to="/">
                             <IoChatbubbleEllipsesOutline />

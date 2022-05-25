@@ -1,8 +1,11 @@
 import React from 'react'
+import Row from '../Item/Row'
 
 const ChatNav = () => {
     return (
-        <div>ChatNav</div>
+        <nav>
+
+        </nav>
     )
 }
 
