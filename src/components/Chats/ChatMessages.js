@@ -1,8 +1,12 @@
 import React from 'react'
+import Row from '../Item/Row'
+import ChatHeader from './ChatHeader'
 
 const ChatMessages = () => {
     return (
-        <div></div>
+        <Row>
+            <ChatHeader />
+        </Row>
     )
 }
 
