@@ -17,18 +17,21 @@ const ChatUser = ({ user }) => {
                     <AvatarOnline
                         user={user}
                     />
-                    <ChatUserContent>
-                        <Typography>
-                            {user?.name}
-                        </Typography>
-                        <Typography
-                            sx={{
-                                color: "gray"
-                            }}
-                        >
-                            {user?.message}
-                        </Typography>
-                    </ChatUserContent>
+                    <Row>
+                        <ChatUserContent>
+                            <Typography>
+                                {user?.name}
+                            </Typography>
+                            <Typography
+                                sx={{
+                                    color: "gray"
+                                }}
+                            >
+                                {user?.message}
+                            </Typography>
+                        </ChatUserContent>
+
+                    </Row>
                 </Row>
             </Container>
         </LinkFlex>
