@@ -46,9 +46,8 @@ const ChatHeader = () => {
                         </ChatNavButton>
                     </Row>
                 </nav>
-
             </Grid>
-        </Row >
+        </Row>
     )
 }
 
