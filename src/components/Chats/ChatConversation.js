@@ -4,7 +4,7 @@ import ConversationMessage from './ConversationMessage'
 
 const ChatConversation = () => {
     return (
-        <Scroll height="100px">
+        <Scroll height="150px">
             <ConversationMessage />
             <ConversationMessage position="end" />
             <ConversationMessage />
