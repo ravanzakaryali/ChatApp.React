@@ -77,7 +77,7 @@ const data = [
 
 const ChatUserList = () => {
     return (
-        <Scroll>
+        <Scroll height="250px">
             {
                 data.map((user, index) => (
                     <ChatUser key={index} user={user} />

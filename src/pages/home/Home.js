@@ -13,6 +13,7 @@ import ChatUser from '../../components/Chats/ChatUser';
 import ChatUserList from '../../components/Chats/ChatUserList';
 import ChatHeader from '../../components/Chats/ChatHeader';
 import Header from '../../components/Header/Header';
+import ChatConversation from '../../components/Chats/ChatConversation';
 
 const Home = () => {
     const context = useOutletContext();
@@ -27,6 +28,7 @@ const Home = () => {
             </Grid>
             <Grid item xs={8.5}>
                 <Header />
+                <ChatConversation />
             </Grid>
             <Grid>
             </Grid>
