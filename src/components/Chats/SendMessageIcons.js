@@ -2,21 +2,21 @@ import { ImportContacts } from '@mui/icons-material'
 import React from 'react'
 import ChatNavButton from '../Item/ChatNavButton'
 import Row from '../Item/Row'
+import { GrEmoji } from 'react-icons/gr';
+import { RiAttachmentLine } from 'react-icons/ri';
+import { MdPhotoSizeSelectActual } from 'react-icons/md';
 
 const SendMessageIcons = () => {
     return (
         <Row>
             <ChatNavButton>
-                <ImportContacts />
+                <GrEmoji />
             </ChatNavButton>
             <ChatNavButton>
-                <ImportContacts />
+                <RiAttachmentLine />
             </ChatNavButton>
             <ChatNavButton>
-                <ImportContacts />
-            </ChatNavButton>
-            <ChatNavButton>
-                <ImportContacts />
+                <MdPhotoSizeSelectActual />
             </ChatNavButton>
         </Row>
     )
