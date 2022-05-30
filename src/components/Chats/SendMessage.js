@@ -21,7 +21,7 @@ const SendMessage = () => {
                 }}
             >
                 <Row width="100%">
-                    <Col xs={8}>
+                    <Col item xs={8}>
                         <InputBase
                             name='sendmessage'
                             fullWidth
@@ -36,12 +36,15 @@ const SendMessage = () => {
                             inputProps={{ 'placeholder': 'Enter your message....' }}
                         />
                     </Col>
-                    <Col xs={3}>
+                    <Col item xs={3}>
                         <SendMessageIcons />
                     </Col>
-                    <Col xs={1}>
+                    <Col item xs={1} sx={{
+                        justifyContent: 'end',
+                    }}>
                         <Button variant="contained" sx={{
                             height: '100%',
+                            width: '100%',
                         }}>
                             <IoSend />
                         </Button>

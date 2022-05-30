@@ -8,7 +8,11 @@ import { MdPhotoSizeSelectActual } from 'react-icons/md';
 
 const SendMessageIcons = () => {
     return (
-        <Row>
+        <Row sx={{
+            justifyContent: 'space-evenly',
+            alignItems: 'center',
+            fontSize: '20px',
+        }}>
             <ChatNavButton>
                 <GrEmoji />
             </ChatNavButton>
