@@ -1,8 +1,34 @@
+import { Button, FormControl, TextField, Typography } from '@mui/material'
 import React from 'react'
+import Form from '../../components/Item/Form'
 
 const Login = () => {
     return (
-        <div>Login</div>
+        <Form>
+            <Typography
+                sx={{
+                    marginBottom: '0.5rem',
+                }}
+                variant='h4'>
+                Login
+            </Typography>
+            <FormControl fullWidth>
+                <TextField
+                    sx={{
+                        marginBottom: '1rem',
+                    }}
+                    id="username" label="Username" variant="outlined" />
+                <TextField
+                    sx={{
+                        marginBottom: '1rem',
+                    }}
+                    id="password" label="Password" variant="outlined" />
+                <Button type='submit' variant='contained'>
+                    Login
+                </Button>
+            </FormControl>
+        </Form>
+
     )
 }
 
