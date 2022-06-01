@@ -2,13 +2,13 @@ import axios from 'axios'
 import * as actionTypes from './helper/actionType'
 import { baseUrl, header, headerAuthorization } from './helper/axionConfiguration';
 
-export function loginSuccess(data) {
+const loginSuccess = data => {
     return { type: actionTypes.USER_LOGIN_SUCCESS, payload: data }
 }
-export function loginError(error) {
+const loginError = error => {
     return { type: actionTypes.USER_LOGIN_ERROR, payload: error }
 }
-export function loginLoading() {
+const loginLoading = () => {
     return { type: actionTypes.USER_LOGIN_LOADING }
 }
 export function authLogin(loginState) {
