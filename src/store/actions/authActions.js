@@ -13,8 +13,9 @@ const loginLoading = () => {
 }
 export function authLogin(loginState) {
     return async function (dispatch) {
+        console.log(loginState);
         dispatch(loginLoading())
-        let url = `${baseUrl}/authenticate/login`;
+        let url = `${baseUrl}/autheticate/login`;
         axios.post(url, loginState, header)
             .then((res) => {
                 localStorage.setItem("token", res.data.token);

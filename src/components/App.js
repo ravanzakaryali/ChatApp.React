@@ -6,21 +6,25 @@ import { CssBaseline } from '@mui/material'
 import Auth from '../pages/auth/Auth'
 import Login from '../pages/auth/Login'
 import Register from '../pages/auth/Register'
+import { Provider } from 'react-redux'
+import store from '../store/configureStore'
 
 const App = () => {
     return (
         <BrowserRouter>
-            <CssBaseline>
-                <Routes>
-                    <Route element={<PrivateRouter />}>
-                        <Route element={<Home />} path={'/'} />
-                    </Route>
-                    <Route element={<Auth />} path="/auth">
-                        <Route element={<Login />} path={'login'} />
-                        <Route element={<Register />} path={'register'} />
-                    </Route>
-                </Routes>
-            </CssBaseline>
+            <Provider store={store}>
+                <CssBaseline>
+                    <Routes>
+                        <Route element={<PrivateRouter />}>
+                            <Route element={<Home />} path={'/'} />
+                        </Route>
+                        <Route element={<Auth />} path="/auth">
+                            <Route element={<Login />} path={'login'} />
+                            <Route element={<Register />} path={'register'} />
+                        </Route>
+                    </Routes>
+                </CssBaseline>
+            </Provider>
         </BrowserRouter>
     )
 }
