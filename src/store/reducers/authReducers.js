@@ -1,7 +1,7 @@
 import initialState from '../initialState';
 import * as actionTypes from '../actions/helper/actionType';
 
-//#region LoginReducer
+//#region Login Reducer
 export function loginReducer(state = initialState.loginInfo, action) {
     switch (action.type) {
         case actionTypes.USER_LOGIN_LOADING:
@@ -32,15 +32,26 @@ export function loginReducer(state = initialState.loginInfo, action) {
 }
 //#endregion
 
-//#region LoginReducer
+//#region Register Reducer
 export function registerReducer(state = initialState.registerInfo, action) {
     switch (action.type) {
         case actionTypes.USER_REGISTER_LOADING:
-            return "loading"
+            return {
+                ...state,
+                loading: true
+            }
         case actionTypes.USER_REGISTER_SUCCESS:
-            return action.payload
+            return {
+                ...state,
+                loading: false,
+                data: action.payload
+            }
         case actionTypes.USER_REGISTER_ERROR:
-            return action.payload
+            return {
+                ...state,
+                loading: false,
+                error: action.payload
+            }
         default:
             return state;
     }
