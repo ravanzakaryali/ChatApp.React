@@ -4,11 +4,28 @@ import * as actionTypes from '../actions/helper/actionType';
 //#region LoginReducer
 export function loginReducer(state = initialState.loginInfo, action) {
     switch (action.type) {
+        case actionTypes.USER_LOGIN_LOADING:
+            return {
+                ...state,
+                loading: true,
+                isLogin: false
+            }
         case actionTypes.USER_LOGIN_SUCCESS:
-            window.location.reload();
-            return action.payload
+            localStorage.setItem('token', JSON.stringify(action.payload.token))
+            localStorage.setItem('ex_d', JSON.stringify(action.payload.expiration))
+            localStorage.setItem('tk_rf', JSON.stringify(action.payload.refreshToken))
+            return {
+                ...state,
+                loading: false,
+                isLogin: true,
+            }
         case actionTypes.USER_LOGIN_ERROR:
-            return action.payload
+            return {
+                ...state,
+                loading: false,
+                isLogin: false,
+                error: action.payload,
+            }
         default:
             return state;
     }
