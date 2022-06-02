@@ -13,7 +13,7 @@ export function loginReducer(state = initialState.loginInfo, action) {
         case actionTypes.USER_LOGIN_SUCCESS:
             localStorage.setItem('token', JSON.stringify(action.payload.token))
             localStorage.setItem('ex_d', JSON.stringify(action.payload.expiration))
-            localStorage.setItem('tk_rf', JSON.stringify(action.payload.refreshToken))
+            localStorage.setItem('rf_tk', JSON.stringify(action.payload.refreshToken))
             return {
                 ...state,
                 loading: false,
