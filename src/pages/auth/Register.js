@@ -50,11 +50,7 @@ const Register = (props) => {
                     }} id="password" label="Password" variant="outlined" />
                 {errors.password && <Typography color="red">Password is required</Typography>}
 
-                <FormControl
-                    sx={{
-                        marginBottom: '1rem',
-                    }}
-                >
+                <FormControl sx={{ marginBottom: '1rem' }}>
                     <Link
                         to='/auth/login'
                     >You have a account?</Link>

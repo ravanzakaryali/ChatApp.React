@@ -1,4 +1,5 @@
 import { createTheme } from "@mui/material/styles";
+import { grey } from '@mui/material/colors';
 
 export const theme = createTheme({
     palette: {
@@ -25,12 +26,24 @@ export const theme = createTheme({
         },
         MuiCssBaseline: {
             styleOverrides: {
+                '&::-webkit-scrollbar': {
+                    width: '1rem',
+                    borderRight: "5px white solid",
+                },
+                '&::-webkit-scrollbar-track': {
+                    backgroundColor: 'white',
+                },
+                '&::-webkit-scrollbar-thumb': {
+                    borderRadius: '10px',
+                    border: '4px white solid',
+                    backgroundColor: grey[400],
+                },
                 body: {
                     margin: 0,
                     padding: 0,
                     boxSizing: 'border-box',
                 },
-            }
+            },
         },
     },
 })
