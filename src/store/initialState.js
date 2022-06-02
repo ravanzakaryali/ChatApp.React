@@ -17,6 +17,11 @@ export default {
         loading: false,
         error: ''
     },
+    user: {
+        data: [],
+        loading: false,
+        error: '',
+    },
     loginUser: {
         data: [],
         loading: false,
