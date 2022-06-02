@@ -19,7 +19,6 @@ export function authLogin(loginState) {
         let url = `${baseUrl}/autheticate/login`;
         axios.post(url, loginState, header)
             .then((res) => {
-                localStorage.setItem("token", res.data.token);
                 dispatch(loginSuccess(res.data));
             }).catch((error) => {
                 dispatch(loginError(error));

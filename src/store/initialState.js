@@ -10,6 +10,7 @@ export default {
         loading: false,
         error: '',
         isLogin: false,
+        message: "",
     },
     users: {
         data: [],

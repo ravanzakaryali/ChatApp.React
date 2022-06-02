@@ -1,16 +1,22 @@
 import { Button, FormControl, TextField, Typography } from '@mui/material'
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useForm } from 'react-hook-form'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import Form from '../../components/Item/Form'
 import { connect } from 'react-redux';
 import { authLogin } from "../../store/actions/authActions";
 
 const Login = (props) => {
+    const { loginResult } = props;
+    const navigate = useNavigate();
     const { login } = props;
     const { register, handleSubmit, formState: { errors } } = useForm();
     const onSubmit = data => login(data);
-
+    useEffect(() => {
+        if (loginResult?.isLogin === true) {
+            navigate('/');
+        }
+    }, [loginResult])
     return (
         <Form onSubmit={handleSubmit(onSubmit)}>
             <Typography
@@ -48,7 +54,7 @@ const Login = (props) => {
 
 const mapStateToProps = (state) => {
     return {
-        loginError: state.loginReducer,
+        loginResult: state.loginReducer,
     };
 };
 const mapDispatchToProps = (dispatch) => {

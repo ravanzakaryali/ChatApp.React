@@ -23,7 +23,7 @@ export function loginReducer(state = initialState.loginInfo, action) {
             return {
                 ...state,
                 loading: false,
-                isLogin: false,
+                message: "Username or password is incorrect",
                 error: action.payload,
             }
         default:
