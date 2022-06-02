@@ -19,7 +19,7 @@ export function loginReducer(state = initialState.loginInfo, action) {
 export function registerReducer(state = initialState.registerInfo, action) {
     switch (action.type) {
         case actionTypes.USER_REGISTER_LOADING:
-            return action.payload
+            return "loading"
         case actionTypes.USER_REGISTER_SUCCESS:
             return action.payload
         case actionTypes.USER_REGISTER_ERROR:
