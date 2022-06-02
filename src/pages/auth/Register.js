@@ -15,25 +15,19 @@ const Register = () => {
             </Typography>
             <FormControl fullWidth>
                 <TextField
-                    sx={{
-                        marginBottom: '1rem',
-                    }}
-                    id="name" label="Name" variant="outlined" />
+                    sx={{ marginBottom: '1rem' }} id="name" label="Name" variant="outlined" />
                 <TextField
                     sx={{
                         marginBottom: '1rem',
-                    }}
-                    id="surname" label="Surname" variant="outlined" />
+                    }} id="surname" label="Surname" variant="outlined" />
                 <TextField
                     sx={{
                         marginBottom: '1rem',
-                    }}
-                    id="username" label="Username" variant="outlined" />
+                    }} id="username" label="Username" variant="outlined" />
                 <TextField
                     sx={{
                         marginBottom: '1rem',
-                    }}
-                    id="password" label="Password" variant="outlined" />
+                    }} id="password" label="Password" variant="outlined" />
                 <FormControl
                     sx={{
                         marginBottom: '1rem',
