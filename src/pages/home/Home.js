@@ -1,5 +1,5 @@
 import React, { useContext, useEffect } from 'react'
-import { useOutletContext } from 'react-router-dom';
+import { Outlet, useOutletContext } from 'react-router-dom';
 import Chat from '../../components/containers/chat/Chat';
 import Messages from '../../components/containers/chat/Messages';
 import Event from '../../components/containers/chat/Event';
@@ -28,9 +28,7 @@ const Home = () => {
                 <ChatUserList />
             </Grid>
             <Grid item xs={8.5}>
-                <Header />
-                <ChatConversation />
-                <SendMessage />
+                <Outlet />
             </Grid>
             <Grid>
             </Grid>

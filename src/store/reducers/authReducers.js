@@ -11,9 +11,9 @@ export function loginReducer(state = initialState.loginInfo, action) {
                 isLogin: false
             }
         case actionTypes.USER_LOGIN_SUCCESS:
-            localStorage.setItem('token', JSON.stringify(action.payload.token))
-            localStorage.setItem('ex_d', JSON.stringify(action.payload.expiration))
-            localStorage.setItem('rf_tk', JSON.stringify(action.payload.refreshToken))
+            localStorage.setItem('token', action.payload.token);
+            localStorage.setItem('ex_d', action.payload.expiration);
+            localStorage.setItem('rf_tk', action.payload.refreshToken);
             return {
                 ...state,
                 loading: false,

@@ -16,7 +16,7 @@ const getUsersLoading = () => {
 export function getUsers() {
     return async function (dispatch) {
         dispatch(getUsersLoading())
-        let url = `${baseUrl}/user`;
+        let url = `${baseUrl}/user?page=1&size=10`;
         axios.get(url, headerAuthorization)
             .then((res) => {
                 dispatch(getUsersSuccess(res.data));
@@ -40,7 +40,7 @@ const getUserLoading = () => {
 export function getUser(username) {
     return async function (dispatch) {
         dispatch(getUserLoading())
-        let url = `${baseUrl}/user/${username}`;
+        let url = `${baseUrl}/user/${username} `;
         axios.get(url, headerAuthorization)
             .then((res) => {
                 dispatch(getUserSuccess(res.data));

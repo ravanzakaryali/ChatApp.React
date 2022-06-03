@@ -1,6 +1,8 @@
-import React from 'react'
+import React, { useEffect } from 'react'
+import { connect } from 'react-redux'
 import Scroll from '../Item/Scroll'
 import ChatUser from './ChatUser'
+import { getUsers } from '../../store/actions/userActions'
 
 const data = [
     {
@@ -75,11 +77,16 @@ const data = [
     }
 ]
 
-const ChatUserList = () => {
+const ChatUserList = (props) => {
+    const { users, getUsersRequest } = props;
+    useEffect(() => {
+        getUsersRequest();
+    }, [getUsersRequest])
+
     return (
         <Scroll height="250px">
             {
-                data.map((user, index) => (
+                users?.data.map((user, index) => (
                     <ChatUser key={index} user={user} />
                 ))
             }
@@ -87,4 +94,18 @@ const ChatUserList = () => {
     )
 }
 
-export default ChatUserList
+
+const mapStateToProps = (state) => {
+    return {
+        users: state.getUsersReducer,
+    };
+};
+const mapDispatchToProps = (dispatch) => {
+    return {
+        getUsersRequest: (data) => {
+            dispatch(getUsers(data));
+        },
+    };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(ChatUserList);

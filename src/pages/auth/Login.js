@@ -7,9 +7,8 @@ import { connect } from 'react-redux';
 import { authLogin } from "../../store/actions/authActions";
 
 const Login = (props) => {
-    const { loginResult } = props;
+    const { loginResult, login } = props;
     const navigate = useNavigate();
-    const { login } = props;
     const { register, handleSubmit, formState: { errors } } = useForm();
     const onSubmit = data => login(data);
     useEffect(() => {

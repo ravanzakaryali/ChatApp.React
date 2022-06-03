@@ -5,8 +5,8 @@ export const header = {
     },
 }
 export const headerAuthorization = {
-    header: {
-        'Authorization': `Bearer ${localStorage.getItem("token")}`,
+    headers: {
+        'Authorization': `Bearer ${localStorage.getItem('token')}`,
         'Accept': 'application/json, text/plain',
         'Content-Type': 'application/json;charset=UTF-8'
     }

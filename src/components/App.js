@@ -8,6 +8,7 @@ import Login from '../pages/auth/Login'
 import Register from '../pages/auth/Register'
 import { Provider } from 'react-redux'
 import store from '../store/configureStore'
+import Chats from './Chats/Chats'
 
 const App = () => {
     return (
@@ -16,7 +17,9 @@ const App = () => {
                 <CssBaseline>
                     <Routes>
                         <Route element={<PrivateRouter />}>
-                            <Route element={<Home />} path={'/'} />
+                            <Route element={<Home />} path={'/'} >
+                                <Route element={<Chats />} path={':username'} />
+                            </Route>
                         </Route>
                         <Route element={<Auth />} path="/auth">
                             <Route element={<Login />} path={'login'} />
@@ -25,7 +28,7 @@ const App = () => {
                     </Routes>
                 </CssBaseline>
             </Provider>
-        </BrowserRouter>
+        </BrowserRouter >
     )
 }
 

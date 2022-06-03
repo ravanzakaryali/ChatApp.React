@@ -9,7 +9,7 @@ import Row from '../Item/Row'
 
 const ChatUser = ({ user }) => {
     return (
-        <LinkFlex to={`/${user}`}>
+        <LinkFlex to={user.username}>
             <Container sx={{
                 padding: "10px 0px"
             }}>
