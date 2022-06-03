@@ -43,6 +43,7 @@ export function authRegister(registerState) {
         let url = `${baseUrl}/autheticate/register`;
         axios.post(url, registerState, header)
             .then((res) => {
+                console.log(res)
                 dispatch(registerSuccess(res.data));
             }).catch((error) => {
                 dispatch(registerError(error));

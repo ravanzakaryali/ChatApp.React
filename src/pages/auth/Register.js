@@ -1,17 +1,22 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import Form from '../../components/Item/Form'
 import { Button, FormControl, TextField, Typography } from '@mui/material'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { useForm } from 'react-hook-form'
 import { authRegister } from '../../store/actions/authActions'
 import { connect } from 'react-redux'
 
 
 const Register = (props) => {
-    const { registerForm } = props;
+    const { registerForm, registerResult } = props;
+    const navigate = useNavigate();
     const { register, handleSubmit, formState: { errors } } = useForm();
     const onSubmit = data => registerForm(data);
-
+    useEffect(() => {
+        if (registerResult?.isRegitser === true) {
+            navigate('login');
+        }
+    }, [navigate, registerResult])
     return (
         <Form onSubmit={handleSubmit(onSubmit)}>
             <Typography
@@ -25,30 +30,41 @@ const Register = (props) => {
 
                 <TextField
                     {...register("name", { required: true })}
-                    sx={{ marginBottom: '1rem' }} id="name" label="Name" variant="outlined" />
-                {errors.userName && <Typography color="red">Username is required</Typography>}
+                    sx={{
+                        margin: '0.5rem 0 0.2rem 0',
+                    }} id="name" label="Name" variant="outlined" />
+                {errors.name && <Typography color="red">Username is required</Typography>}
 
                 <TextField
-
                     {...register("surname", { required: true })}
                     sx={{
-                        marginBottom: '1rem',
+                        margin: '0.5rem 0 0.2rem 0',
                     }} id="surname" label="Surname" variant="outlined" />
                 {errors.surname && <Typography color="red">Surname is required</Typography>}
 
                 <TextField
-                    {...register("username", { required: true })}
+                    {...register("email", { required: true, pattern: /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/ })}
                     sx={{
-                        marginBottom: '1rem',
-                    }} id="username" label="Username" variant="outlined" />
-                {errors.username && <Typography color="red">Username is required</Typography>}
+                        margin: '0.5rem 0 0.2rem 0',
+                    }} type="email" id="email" label="Email" variant="outlined" />
+                {errors.email?.type === 'required' && <Typography color="red">Email is required</Typography>}
+                {errors.email?.type === 'pattern' && <Typography color="red">example@gmail.com</Typography>}
 
                 <TextField
                     {...register("password", { required: true, })}
                     sx={{
-                        marginBottom: '1rem',
-                    }} id="password" label="Password" variant="outlined" />
+                        margin: '0.5rem 0 0.2rem 0',
+                    }} type='password' id="password" label="Password" variant="outlined" />
                 {errors.password && <Typography color="red">Password is required</Typography>}
+
+                <TextField
+                    {...register("confirmPassword", {
+                        required: true,
+                    })}
+                    sx={{
+                        margin: '0.5rem 0 0.2rem 0',
+                    }} type="password" id="confirmPassword" label="Confirm Password" variant="outlined" />
+                {errors.confirmPassword && <Typography color="red">Confirm Password is required</Typography>}
 
                 <FormControl sx={{ marginBottom: '1rem' }}>
                     <Link
@@ -65,7 +81,7 @@ const Register = (props) => {
 
 const mapStateToProps = (state) => {
     return {
-        registerError: state.registerReducer,
+        registerResult: state.registerReducer,
     };
 };
 const mapDispatchToProps = (dispatch) => {

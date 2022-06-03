@@ -44,7 +44,8 @@ export function registerReducer(state = initialState.registerInfo, action) {
             return {
                 ...state,
                 loading: false,
-                data: action.payload
+                data: action.payload,
+                isRegister: true,
             }
         case actionTypes.USER_REGISTER_ERROR:
             return {
