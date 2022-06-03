@@ -7,7 +7,8 @@ export function getUsersReducer(state = initialState.users, action) {
         case actionTypes.GET_USERS_LOADING:
             return {
                 ...state,
-                loading: true
+                loading: true,
+                data: [],
             }
         case actionTypes.GET_USERS_SUCCESS:
             return {
@@ -19,7 +20,8 @@ export function getUsersReducer(state = initialState.users, action) {
             return {
                 ...state,
                 loading: false,
-                error: action.payload
+                error: action.payload,
+                data: [],
             }
         default:
             return state;
@@ -33,7 +35,8 @@ export function getUserReducer(state = initialState.user, action) {
         case actionTypes.GET_USER_LOADING:
             return {
                 ...state,
-                loading: true
+                loading: true,
+                data: [],
             }
         case actionTypes.GET_USER_SUCCESS:
             return {
@@ -45,7 +48,8 @@ export function getUserReducer(state = initialState.user, action) {
             return {
                 ...state,
                 loading: false,
-                error: action.payload
+                error: action.payload,
+                data: [],
             }
         default:
             return state;

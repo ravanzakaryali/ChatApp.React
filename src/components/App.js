@@ -28,7 +28,7 @@ const App = () => {
                     </Routes>
                 </CssBaseline>
             </Provider>
-        </BrowserRouter >
+        </BrowserRouter>
     )
 }
 
