@@ -26,5 +26,11 @@ export default {
         data: [],
         loading: false,
         error: ''
-    }
+    },
+    messages: {
+        data: [],
+        loading: false,
+        error: ''
+    },
+
 }
