@@ -12,7 +12,6 @@ const Chats = (props) => {
     useEffect(() => {
         getUserRequest(username);
     }, [getUserRequest, username]);
-    console.log(user);
     return (
         <>
             <Header />
