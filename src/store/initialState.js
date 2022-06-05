@@ -32,5 +32,10 @@ export default {
         loading: false,
         error: ''
     },
+    sendMessage: {
+        data: [],
+        loading: false,
+        error: ''
+    }
 
 }
