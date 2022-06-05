@@ -1,20 +1,26 @@
 import { TextFields } from '@mui/icons-material'
 import { Button, InputBase } from '@mui/material'
-import React from 'react'
+import React, { useContext, useEffect } from 'react'
 import Row from '../Item/Row'
 import SendMessageIcons from './SendMessageIcons'
 import { IoSend } from 'react-icons/io5';
 import Col from '../Item/Col';
-const SendMessage = () => {
+import { useForm } from 'react-hook-form'
+import { sendMessage } from '../../store/actions/chatAction'
+import { connect } from 'react-redux'
+import { useOutletContext } from 'react-router-dom'
+const SendMessage = (props) => {
+    const connection = useOutletContext();
+    const { sendMessageRequest, sendMessagesResult, user } = props;
+    const { register, handleSubmit } = useForm();
+    const onSubmit = data => sendMessageRequest({ ...data, sendUserId: user?.data?.id });
+    
     return (
         <Row sx={{
             padding: "5px 20px"
         }}>
-            <form onSubmit={(e) => {
-                e.preventDefault();
-                console.log(e.target.sendmessage.value);
-                e.target.reset();
-            }}
+            <form
+                onSubmit={handleSubmit(onSubmit)}
                 style={{
                     display: 'flex',
                     width: '100%'
@@ -23,7 +29,8 @@ const SendMessage = () => {
                 <Row width="100%">
                     <Col item xs={8}>
                         <InputBase
-                            name='sendmessage'
+                            {...register("content", { required: true })}
+                            name='content'
                             fullWidth
                             sx={{
                                 width: '100%',
@@ -42,18 +49,34 @@ const SendMessage = () => {
                     <Col item xs={1} sx={{
                         justifyContent: 'end',
                     }}>
-                        <Button variant="contained" sx={{
-                            height: '100%',
-                            width: '100%',
-                        }}>
+                        <Button
+                            type='submit'
+                            variant="contained"
+                            sx={{
+                                height: '100%',
+                                width: '100%',
+                            }}>
                             <IoSend />
                         </Button>
                     </Col>
-                    {/* <SendButton/> */}
                 </Row>
             </form>
         </Row>
     )
 }
 
-export default SendMessage;
+const mapStateToProps = (state) => {
+    return {
+        sendMessagesResult: state.sendMessageReducer,
+        user: state.getUserReducer,
+    };
+};
+const mapDispatchToProps = (dispatch) => {
+    return {
+        sendMessageRequest: (data) => {
+            dispatch(sendMessage(data));
+        },
+    };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(SendMessage);

@@ -27,7 +27,7 @@ const Home = (props) => {
                 <ChatUsersSidebar />
             </Grid>
             <Grid item xs={8.5}>
-                <Outlet />
+                <Outlet context={useOutletContext()} />
             </Grid>
             <Grid>
             </Grid>

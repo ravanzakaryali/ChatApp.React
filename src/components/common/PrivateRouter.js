@@ -21,7 +21,7 @@ const PrivateRouter = () => {
             .configureLogging(LogLevel.Information)
             .build();
         setConnection(newConnection);
-    }, []);
+    }, [navigate]);
     return (
         connection ?
             <Outlet context={connection} />

@@ -36,6 +36,10 @@ export default {
         data: [],
         loading: false,
         error: ''
-    }
-
+    },
+    socketMessage: {
+        data: [],
+        loading: false,
+        error: ''
+    },
 }
