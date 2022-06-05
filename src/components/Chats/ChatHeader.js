@@ -9,12 +9,15 @@ import { IoCallOutline } from 'react-icons/io5';
 import { AiOutlineVideoCamera } from 'react-icons/ai';
 import { RiUser2Line } from 'react-icons/ri'
 import { HiOutlineDotsHorizontal } from 'react-icons/hi'
+import { connect } from 'react-redux'
 
-const ChatHeader = () => {
+const ChatHeader = (props) => {
+    const { user } = props;
+    const { name, surname, avatar } = user?.data;
     return (
         <Row>
             <Grid item xs={4}>
-                <ChatAvatar />
+                <ChatAvatar avatar={avatar} fullname={`${name} ${surname}`} />
             </Grid>
             <Grid item xs={8} sx={{
                 display: "flex",
@@ -58,4 +61,10 @@ const ChatHeader = () => {
     )
 }
 
-export default ChatHeader
+
+const mapStateToProps = (state) => {
+    return {
+        user: state.getUserReducer,
+    };
+};
+export default connect(mapStateToProps)(ChatHeader);

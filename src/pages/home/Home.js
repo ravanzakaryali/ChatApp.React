@@ -8,24 +8,23 @@ import Sidebar from '../../components/sidebar/Sidebar';
 import Row from '../../components/Item/Row';
 import Col from '../../components/Item/Col';
 import { Grid } from '@mui/material';
-import ChatsSidebar from '../../components/Chats/ChatsSidebar';
 import ChatUser from '../../components/Chats/ChatUser';
 import ChatUserList from '../../components/Chats/ChatUserList';
 import ChatHeader from '../../components/Chats/ChatHeader';
 import Header from '../../components/Header/Header';
 import ChatConversation from '../../components/Chats/ChatConversation';
 import SendMessage from '../../components/Chats/SendMessage';
+import ChatUsersSidebar from '../../components/Chats/ChatUsersSidebar';
 
-const Home = () => {
-    const context = useOutletContext();
+const Home = (props) => {
+    const { sidebar, main } = props;
     return (
         <Row container>
             <Grid item xs={.5}>
                 <Sidebar />
             </Grid>
             <Grid item xs={3}>
-                <ChatsSidebar />
-                <ChatUserList />
+                <ChatUsersSidebar />
             </Grid>
             <Grid item xs={8.5}>
                 <Outlet />

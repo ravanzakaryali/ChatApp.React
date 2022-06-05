@@ -5,11 +5,9 @@ import { Typography } from '@mui/material'
 import Dot from '../Item/Dot'
 import Row from '../Item/Row'
 import { Grid } from '@mui/material'
-const user = {
-    name: "Revan Zakaryali",
-    url: "https://picsum.photos/200/300",
-}
-const ChatAvatar = () => {
+
+
+const ChatAvatar = ({ fullname, avatar }) => {
     return (
         <Row sx={{
             alignItems: 'center',
@@ -17,13 +15,13 @@ const ChatAvatar = () => {
         }}>
             <Grid item xs={2}>
                 <Avatar
-                    alt={user.name}
-                    src={user.url ? user.url : BrokenImage.toString()}
+                    alt={fullname}
+                    src={avatar ? avatar : BrokenImage.toString()}
                     sx={{ width: 42, height: 42 }}
                 />
             </Grid>
             <Typography  >
-                {user.name}
+                {fullname}
             </Typography>
             <Dot sx={{
                 margin: "0px 20px"

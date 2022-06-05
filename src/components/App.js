@@ -9,6 +9,8 @@ import Register from '../pages/auth/Register'
 import { Provider } from 'react-redux'
 import store from '../store/configureStore'
 import Chats from './Chats/Chats'
+import Setting from '../pages/settings/Setting';
+import ChatUsersSidebar from './Chats/ChatUsersSidebar'
 
 const App = () => {
     return (
