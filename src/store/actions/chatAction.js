@@ -16,8 +16,9 @@ export function getMessages(username) {
     return async function (dispatch) {
         dispatch(getMessagesLoading())
         let url = `${baseUrl}/chat/${username}`;
-        axios.post(url, headerAuthorization)
+        axios.get(url, headerAuthorization)
             .then((res) => {
+                console.log(res)
                 dispatch(getMessagesSuccess(res.data));
             }).catch((error) => {
                 dispatch(getMessagesError(error));

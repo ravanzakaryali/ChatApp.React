@@ -8,7 +8,7 @@ import SendMessage from './SendMessage'
 
 const Chats = (props) => {
     const { username } = useParams();
-    const { user, getUserRequest } = props;
+    const { getUserRequest } = props;
     useEffect(() => {
         getUserRequest(username);
     }, [getUserRequest, username]);

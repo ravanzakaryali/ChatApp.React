@@ -6,22 +6,22 @@ import MessageList from '../Item/MessageList'
 import Row from '../Item/Row'
 import { AiOutlineClockCircle } from 'react-icons/ai';
 
-const ConversationMessage = ({ position }) => {
+const ConversationMessage = ({ position, user, message }) => {
     return (
         position !== "end" ?
             <MessageList>
                 <Avatar
-                    alt="Revan Zakaryli"
-                    src="https://picsum.photos/200/300"
+                    alt={`${user?.name} ${user?.surname}`}
+                    src={user?.avatar}
                     sx={{ width: 42, height: 42 }}
                 />
                 <Message>
                     <Row>
                         <div>
-                            Lorem ipsum lorem ipsum
+                            {message?.content}
                             <ChatSenderDate>
                                 <AiOutlineClockCircle />
-                                12:00
+                                {message?.senderDate}
                             </ChatSenderDate>
                         </div>
                         <div className='chat-name'>
@@ -38,10 +38,10 @@ const ConversationMessage = ({ position }) => {
                 >
                     <Row>
                         <div>
-                            Lorem ipsum lorem ipsum
+                            {message?.content}
                             <ChatSenderDate>
                                 <AiOutlineClockCircle />
-                                12:00
+                                {message?.senderDate}
                             </ChatSenderDate>
                         </div>
                         <div className='chat-name'>
@@ -49,8 +49,8 @@ const ConversationMessage = ({ position }) => {
                     </Row>
                 </Message>
                 <Avatar
-                    alt="Revan Zakaryli"
-                    src="https://picsum.photos/200/300"
+                    alt={`${user?.name} ${user?.surname}`}
+                    src={user?.avatar}
                     sx={{ width: 42, height: 42 }}
                 />
             </MessageList>
