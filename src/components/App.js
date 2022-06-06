@@ -11,6 +11,7 @@ import store from '../store/configureStore'
 import Chats from './Chats/Chats'
 import Setting from '../pages/settings/Setting';
 import ChatUsersSidebar from './Chats/ChatUsersSidebar'
+import Index from '../pages/Index'
 
 const App = () => {
     return (
@@ -19,8 +20,12 @@ const App = () => {
                 <CssBaseline>
                     <Routes>
                         <Route element={<PrivateRouter />}>
-                            <Route element={<Home />} path={'/'} >
-                                <Route element={<Chats />} path={':username'} />
+                            <Route element={<Index />}>
+                                <Route element={<Home />} path={'/'} >
+                                    <Route element={<Chats />} path={':username'} />
+                                </Route>
+                                <Route element={<Setting />} path={'/settings'}>
+                                </Route>
                             </Route>
                         </Route>
                         <Route element={<Auth />} path="/auth">

@@ -17,7 +17,10 @@ const ChatConversation = (props) => {
     } = props;
 
     const { id } = user?.data;
-    messages?.data?.push(getSocket?.data);
+    if (getSocket?.data?.length !== 0) {
+        messages?.data?.push(getSocket?.data);
+    };
+    getSocket.data = "";
     useEffect(() => {
         getMessagesRequest(username)
         connection
@@ -28,8 +31,7 @@ const ChatConversation = (props) => {
                     console.log(message);
                 })
             })
-    }, [connection, getMessagesRequest])
-    console.log(messages.data);
+    }, [])
     return (
         <Scroll height="150px">
             {messages.data?.map((message, index) => {

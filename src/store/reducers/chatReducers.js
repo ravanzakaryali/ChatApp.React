@@ -1,16 +1,5 @@
 import initialState from '../initialState';
 import * as actionTypes from '../actions/helper/actionType';
-import { HubConnectionBuilder, LogLevel } from '@microsoft/signalr'
-
-const server = 'https://localhost:5001/chathub'
-const newConnection = new HubConnectionBuilder()
-    .withUrl(server, {
-        logging: LogLevel.Trace,
-        accessTokenFactory: () => localStorage.getItem("token")
-    })
-    .withAutomaticReconnect([1000, 2000, 3000])
-    .configureLogging(LogLevel.Information)
-    .build();
 
 //#region Get Message Reducer
 export function getMessagesReducer(state = initialState.messages, action) {
@@ -31,6 +20,11 @@ export function getMessagesReducer(state = initialState.messages, action) {
                 ...state,
                 loading: false,
                 error: action.payload
+            }
+        case actionTypes.SEND_MESSAGE_SUCCESS:
+            return {
+                ...state,
+                data: [...state.data, action.payload]
             }
         default:
             return state;

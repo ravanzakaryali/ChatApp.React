@@ -12,9 +12,12 @@ import { useOutletContext } from 'react-router-dom'
 const SendMessage = (props) => {
     const connection = useOutletContext();
     const { sendMessageRequest, sendMessagesResult, user } = props;
-    const { register, handleSubmit } = useForm();
-    const onSubmit = data => sendMessageRequest({ ...data, sendUserId: user?.data?.id });
-    
+    const { register, handleSubmit, reset } = useForm();
+    const onSubmit = data => {
+        sendMessageRequest({ ...data, sendUserId: user?.data?.id })
+        reset();
+    };
+
     return (
         <Row sx={{
             padding: "5px 20px"

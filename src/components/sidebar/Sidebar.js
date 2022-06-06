@@ -34,7 +34,7 @@ const Sidebar = () => {
                         </LinkFlex>
                     </ListItemButton>
                     <ListItemButton>
-                        <LinkFlex to="/">
+                        <LinkFlex to="settings">
                             <AiOutlineSetting />
                         </LinkFlex>
                     </ListItemButton>

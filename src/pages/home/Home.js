@@ -17,25 +17,15 @@ import SendMessage from '../../components/Chats/SendMessage';
 import ChatUsersSidebar from '../../components/Chats/ChatUsersSidebar';
 
 const Home = (props) => {
-    const { sidebar, main } = props;
     return (
-        <Row container>
-            <Grid item xs={.5}>
-                <Sidebar />
-            </Grid>
+        <>
             <Grid item xs={3}>
                 <ChatUsersSidebar />
             </Grid>
             <Grid item xs={8.5}>
                 <Outlet context={useOutletContext()} />
             </Grid>
-            <Grid>
-            </Grid>
-            {/* <Connection connection={context} />
-            <Event connection={context} />
-            <Chat connection={context} />
-            <Messages connection={context} /> */}
-        </Row>
+        </>
     )
 }
 
