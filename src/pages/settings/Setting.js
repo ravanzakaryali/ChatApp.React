@@ -4,6 +4,7 @@ import ChatUsersSidebar from '../../components/Chats/ChatUsersSidebar';
 import { Outlet, useOutletContext } from 'react-router-dom';
 import SidebarTitle from '../../components/Title/SidebarTitle'
 import { Container } from '@mui/system';
+import SettingHeader from './SettingHeader';
 
 
 const Setting = () => {
@@ -12,6 +13,7 @@ const Setting = () => {
             <Grid item xs={3}>
                 <Container>
                     <SidebarTitle title="Settings" />
+                    <SettingHeader />
                 </Container>
             </Grid>
             <Grid item xs={8.5}>

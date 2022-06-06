@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { Outlet, useOutletContext } from 'react-router-dom';
 import Row from '../components/Item/Row';
 import Sidebar from '../components/sidebar/Sidebar';
+import { getLoginUser } from '../store/actions/userActions';
 
 const Index = (porps) => {
     const { getLoginUserRequest, user } = porps;
@@ -27,8 +28,8 @@ const mapStateToProps = (state) => {
 };
 const mapDispatchToProps = (dispatch) => {
     return {
-        getLoginUserRequest: (data) => {
-            dispatch();
+        getLoginUserRequest: () => {
+            dispatch(getLoginUser())
         },
     };
 };

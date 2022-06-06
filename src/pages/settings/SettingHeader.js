@@ -6,6 +6,7 @@ import Row from '../../components/Item/Row'
 
 const SettingHeader = (props) => {
     const { user } = props;
+    console.log(user);
     return (
         <Row sx={{
             justifyContent: 'center',

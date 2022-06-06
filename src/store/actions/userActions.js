@@ -63,7 +63,7 @@ const getLoginUserLoading = () => {
 export function getLoginUser() {
     return async function (dispatch) {
         dispatch(getLoginUserLoading())
-        let url = `${baseUrl}/user-login `;
+        let url = `${baseUrl}/user/login `;
         axios.get(url, headerAuthorization)
             .then((res) => {
                 dispatch(getLoginUserSuccess(res.data));
