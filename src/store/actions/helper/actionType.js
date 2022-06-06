@@ -31,5 +31,14 @@ export const SEND_MESSAGE_LOADING = "SEND_MESSAGE_LOADING";
 export const SEND_MESSAGE_SUCCESS = "SEND_MESSAGE_SUCCESS";
 export const SEND_MESSAGE_ERROR = "SEND_MESSAGE_ERROR";
 //#endregion
+
+//#region Socket action type
 export const SOCKET_MESSAGES_SUCCESS = "SOCKET_MESSAGES_SUCCESS";
+//#endregion
+
+//#region Get Login User action type
+export const GET_LOGIN_USER_LOADING = "GET_LOGIN_USER_LOADING";
+export const GET_LOGIN_USER_SUCCESS = "GET_LOGIN_USER_SUCCESS";
+export const GET_LOGIN_USER_ERROR = "GET_LOGIN_USER_ERROR";
+//#endregion
 

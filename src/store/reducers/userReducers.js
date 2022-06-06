@@ -56,3 +56,30 @@ export function getUserReducer(state = initialState.user, action) {
     }
 }
 //#endregion
+
+//#region Get Login User Reducer
+export function getLoginUserReducer(state = initialState.loginUser, action) {
+    switch (action.type) {
+        case actionTypes.GET_LOGIN_USER_LOADING:
+            return {
+                ...state,
+                loading: true,
+                data: [],
+            }
+        case actionTypes.GET_LOGIN_USER_SUCCESS:
+            return {
+                ...state,
+                loading: false,
+                data: action.payload
+            }
+        case actionTypes.GET_LOGIN_USER_ERROR:
+            return {
+                ...state,
+                loading: false,
+                error: action.payload,
+                data: [],
+            }
+        default:
+            return state;
+    }
+}

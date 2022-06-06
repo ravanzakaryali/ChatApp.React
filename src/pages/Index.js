@@ -1,10 +1,15 @@
 import { Grid } from '@mui/material';
-import React from 'react'
+import React, { useEffect } from 'react'
+import { connect } from 'react-redux';
 import { Outlet, useOutletContext } from 'react-router-dom';
 import Row from '../components/Item/Row';
 import Sidebar from '../components/sidebar/Sidebar';
 
-const Index = () => {
+const Index = (porps) => {
+    const { getLoginUserRequest, user } = porps;
+    useEffect(() => {
+        getLoginUserRequest();
+    }, [])
     return (
         <Row container>
             <Grid item xs={.5}>
@@ -15,4 +20,17 @@ const Index = () => {
     )
 }
 
-export default Index;
+const mapStateToProps = (state) => {
+    return {
+        user: state.getLoginUserReducer,
+    };
+};
+const mapDispatchToProps = (dispatch) => {
+    return {
+        getLoginUserRequest: (data) => {
+            dispatch();
+        },
+    };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Index);

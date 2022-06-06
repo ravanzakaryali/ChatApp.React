@@ -1,8 +1,11 @@
+import { BrokenImage } from '@mui/icons-material'
 import { Avatar } from '@mui/material'
 import React from 'react'
+import { connect } from 'react-redux'
 import Row from '../../components/Item/Row'
 
-const SettingHeader = () => {
+const SettingHeader = (props) => {
+    const { user } = props;
     return (
         <Row sx={{
             justifyContent: 'center',
@@ -17,4 +20,10 @@ const SettingHeader = () => {
     )
 }
 
-export default SettingHeader
+
+const mapStateToProps = (state) => {
+    return {
+        user: state.getLoginUserReducer,
+    };
+};
+export default connect(mapStateToProps)(SettingHeader);

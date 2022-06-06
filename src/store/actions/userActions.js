@@ -2,7 +2,6 @@ import axios from 'axios'
 import * as actionTypes from './helper/actionType'
 import { baseUrl, headerAuthorization } from './helper/axionConfiguration';
 
-
 //#region Get Users action
 const getUsersSuccess = data => {
     return { type: actionTypes.GET_USERS_SUCCESS, payload: data }
@@ -50,3 +49,26 @@ export function getUser(username) {
     }
 }
 //#endregion
+
+//#region Get Login User action
+const getLoginUserSuccess = data => {
+    return { type: actionTypes.GET_LOGIN_USER_SUCCESS, payload: data }
+}
+const getLoginUserError = error => {
+    return { type: actionTypes.GET_LOGIN_USER_ERROR, payload: error }
+}
+const getLoginUserLoading = () => {
+    return { type: actionTypes.GET_LOGIN_USER_LOADING }
+}
+export function getLoginUser() {
+    return async function (dispatch) {
+        dispatch(getLoginUserLoading())
+        let url = `${baseUrl}/user-login `;
+        axios.get(url, headerAuthorization)
+            .then((res) => {
+                dispatch(getLoginUserSuccess(res.data));
+            }).catch((error) => {
+                dispatch(getLoginUserError(error));
+            })
+    }
+}
