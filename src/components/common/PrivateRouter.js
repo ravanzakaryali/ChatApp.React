@@ -20,6 +20,12 @@ const PrivateRouter = () => {
             .withAutomaticReconnect([1000, 2000, 3000])
             .configureLogging(LogLevel.Information)
             .build();
+        newConnection.start()
+            .then(() => {
+                newConnection.on('GetClients', users => {
+                    console.log(users);
+                })
+            });
         setConnection(newConnection);
     }, [navigate]);
     return (
