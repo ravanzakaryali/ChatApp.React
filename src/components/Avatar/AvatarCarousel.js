@@ -1,7 +1,7 @@
 import { BrokenImage } from '@mui/icons-material';
 import { Avatar, AvatarGroup, Badge, Paper, Typography } from '@mui/material';
 import { styled } from '@mui/system';
-import React from 'react'
+import React, { useEffect } from 'react'
 import Row from '../Item/Row';
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { FreeMode, Pagination } from "swiper";
@@ -9,61 +9,34 @@ import "swiper/css";
 import "swiper/css/pagination";
 import StyledBadge from './StyledBadge';
 import AvatarOnline from './AvatarOnline';
+import { getOnlineUsers } from '../../store/actions/userActions';
+import { connect } from 'react-redux';
+import { useOutletContext } from 'react-router-dom';
 
-const data = [
-    {
-        name: "Revan",
-        url: null,
-    },
-    {
-        name: "Mamed",
-        url: "https://picsum.photos/200/301"
-    },
-    {
-        name: "Zaur",
-        url: "https://picsum.photos/199/300"
-    },
-    {
-        name: "Ceyvid",
-        url: "https://picsum.photos/201/300"
-    },
-    {
-        name: "JeyJey",
-        url: "https://picsum.photos/201/301"
-    },
-    {
-        name: "Mammad",
-        url: "https://picsum.photos/200/301"
-    },
-    {
-        name: "Zaur",
-        url: "https://picsum.photos/199/300"
-    },
-    {
-        name: "Ceyvid",
-        url: "https://picsum.photos/201/300"
-    },
-    {
-        name: "JeyJey",
-        url: null
-    }
-]
-
-
-const AvatarCarousel = () => {
-
+const AvatarCarousel = (props) => {
+    const { getOnlineUsersRequest, users } = props;
+    const connection = useOutletContext();
+    useEffect(() => {
+        connection.start()
+            .then(() => {
+                connection.on('GetClients', users => {
+                    getOnlineUsersRequest(users);
+                })
+            });
+    }, []);
+    console.log(users.data);
     return (
         <Row sx={{
             margin: "20px 0px",
         }}>
             <Swiper
-                slidesPerView={4.2}
+                slidesPerView={1}
                 pagination={{
                     clickable: true,
                 }}
             >
                 {
-                    data?.map((user, index) => (
+                    users.data?.map((user, index) => (
                         <SwiperSlide
                             key={index}
                             style={{
@@ -90,7 +63,7 @@ const AvatarCarousel = () => {
                                     textOverflow: "ellipsis",
                                     whiteSpace: "nowrap"
                                 }}>
-                                    {user.name}
+                                    {user.name} {user.surname}
                                 </Typography>
                             </Paper>
                         </SwiperSlide>
@@ -101,4 +74,17 @@ const AvatarCarousel = () => {
     )
 }
 
-export default AvatarCarousel
+const mapStateToProps = (state) => {
+    return {
+        users: state.getOnlineUsersReducer,
+    };
+};
+const mapDispatchToProps = (dispatch) => {
+    return {
+        getOnlineUsersRequest: (username) => {
+            dispatch(getOnlineUsers(username));
+        },
+    };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(AvatarCarousel);

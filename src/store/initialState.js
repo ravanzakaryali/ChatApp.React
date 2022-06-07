@@ -42,4 +42,9 @@ export default {
         loading: false,
         error: ''
     },
+    onlineUsers: {
+        data: [],
+        loading: false,
+        error: ''
+    },
 }

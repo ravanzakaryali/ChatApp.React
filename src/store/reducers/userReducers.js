@@ -83,3 +83,19 @@ export function getLoginUserReducer(state = initialState.loginUser, action) {
             return state;
     }
 }
+//#endregion
+
+//#region Get Online Users Reducer
+export function getOnlineUsersReducer(state = initialState.onlineUsers, action) {
+    switch (action.type) {
+        case actionTypes.GET_ONLINE_USERS_SUCCESS:
+            return {
+                ...state,
+                loading: false,
+                data: action.payload
+            }
+        default:
+            return state;
+    }
+}
+//#endregion

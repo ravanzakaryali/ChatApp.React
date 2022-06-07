@@ -72,3 +72,14 @@ export function getLoginUser() {
             })
     }
 }
+//#endregion
+
+//#region Get Online Users action
+const getOnlineUsersSuccess = data => {
+    return { type: actionTypes.GET_ONLINE_USERS_SUCCESS, payload: data }
+}
+export function getOnlineUsers(users) {
+    return async function (dispatch) {
+        dispatch(getOnlineUsersSuccess(users));
+    }
+}

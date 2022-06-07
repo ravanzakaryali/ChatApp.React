@@ -8,8 +8,14 @@ import { getLoginUser } from '../store/actions/userActions';
 
 const Index = (porps) => {
     const { getLoginUserRequest, user } = porps;
+    const connection = useOutletContext();
     useEffect(() => {
-        getLoginUserRequest();
+        connection.start()
+            .then(() => {
+                connection.on('GetClients', users => {
+                    getLoginUserRequest(users);
+                })
+            });
     }, [])
     return (
         <Row container>

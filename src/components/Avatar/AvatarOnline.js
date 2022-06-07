@@ -11,9 +11,8 @@ const AvatarOnline = ({ user }) => {
             variant='dot'
         >
             <Avatar
-
-                alt={user?.name}
-                src={user?.url ? user.url : BrokenImage.toString()}
+                alt={`${user?.name} ${user?.surname}`}
+                src={user?.avatar ? user?.avatar : BrokenImage.toString()}
                 sx={{ width: 42, height: 42 }}
             />
         </StyledBadge>

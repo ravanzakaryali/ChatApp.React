@@ -34,6 +34,7 @@ export const SEND_MESSAGE_ERROR = "SEND_MESSAGE_ERROR";
 
 //#region Socket action type
 export const SOCKET_MESSAGES_SUCCESS = "SOCKET_MESSAGES_SUCCESS";
+export const GET_ONLINE_USERS_SUCCESS = "GET_ONLINE_USERS_SUCCESS";
 //#endregion
 
 //#region Get Login User action type
