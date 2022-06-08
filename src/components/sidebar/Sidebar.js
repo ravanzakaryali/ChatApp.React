@@ -27,7 +27,16 @@ const sideBarNav = [
         icon: <AiOutlineSetting />,
     },
 ]
-
+const sideBarBottom = [
+    {
+        link: "/",
+        icon: <MdLanguage />,
+    },
+    {
+        link: "/",
+        icon: <HiOutlineMoon />,
+    },
+]
 const Sidebar = (props) => {
     const { avatar, name, surname } = props?.user?.data;
     return (
@@ -54,16 +63,15 @@ const Sidebar = (props) => {
             </VerticalItem>
             <VerticalItem>
                 <Nav orientation='vertical' >
-                    <LinkFlex to="/">
-                        <ListItemButton>
-                            <MdLanguage />
-                        </ListItemButton>
-                    </LinkFlex>
-                    <LinkFlex to="/">
-                        <ListItemButton>
-                            <HiOutlineMoon />
-                        </ListItemButton>
-                    </LinkFlex>
+                    {
+                        sideBarBottom.map((button, index) => (
+                            <LinkFlex to={button.link} key={index}>
+                                <ListItemButton>
+                                    {button.icon}
+                                </ListItemButton>
+                            </LinkFlex>
+                        ))
+                    }
                     <ListItemButton>
                         <Avatar
 
