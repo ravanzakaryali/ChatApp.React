@@ -20,7 +20,6 @@ const PrivateRouter = () => {
             .withAutomaticReconnect([1000, 2000, 3000])
             .configureLogging(LogLevel.Information)
             .build();
-
         setConnection(newConnection);
     }, [navigate]);
     return (

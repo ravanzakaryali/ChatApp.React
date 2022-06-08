@@ -4,19 +4,19 @@ import { connect } from 'react-redux';
 import { Outlet, useOutletContext } from 'react-router-dom';
 import Row from '../components/Item/Row';
 import Sidebar from '../components/sidebar/Sidebar';
-import { getLoginUser } from '../store/actions/userActions';
+import { getLoginUser, getOnlineUsers } from '../store/actions/userActions';
 
 const Index = (porps) => {
-    const { getLoginUserRequest, user } = porps;
+    const { getLoginUserRequest, getOnlineUsersRequest, user } = porps;
     const connection = useOutletContext();
     useEffect(() => {
-        connection.start()
-            .then(() => {
-                connection.on('GetClients', users => {
-                    getLoginUserRequest(users);
-                })
-            });
-    }, [])
+        getLoginUserRequest();
+        connection.start();
+        connection.on('GetClients', users => {
+            console.log(users)
+            getOnlineUsersRequest(users);
+        });
+    }, [getLoginUserRequest, getOnlineUsersRequest])
     return (
         <Row container>
             <Grid item xs={.5}>
@@ -37,6 +37,9 @@ const mapDispatchToProps = (dispatch) => {
         getLoginUserRequest: () => {
             dispatch(getLoginUser())
         },
+        getOnlineUsersRequest: (users) => {
+            dispatch(getOnlineUsers(users))
+        }
     };
 };
 

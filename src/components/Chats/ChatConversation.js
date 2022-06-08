@@ -23,15 +23,11 @@ const ChatConversation = (props) => {
     getSocket.data = "";
     useEffect(() => {
         getMessagesRequest(username)
-        connection
-            .start()
-            .then(() => {
-                connection.on('ReceiveMessage', message => {
-                    sendSocketMessage(message);
-                    console.log(message);
-                })
-            })
-    }, [])
+        connection.on('ReceiveMessage', message => {
+            sendSocketMessage(message);
+            console.log(message);
+        })
+    }, [username])
     return (
         <Scroll height="150px">
             {messages.data?.map((message, index) => {

@@ -1,36 +1,25 @@
-import { BrokenImage } from '@mui/icons-material';
-import { Avatar, AvatarGroup, Badge, Paper, Typography } from '@mui/material';
-import { styled } from '@mui/system';
-import React, { useEffect } from 'react'
+import { Paper, Typography } from '@mui/material';
+import React from 'react'
 import Row from '../Item/Row';
 import { Swiper, SwiperSlide } from 'swiper/react'
-import { FreeMode, Pagination } from "swiper";
 import "swiper/css";
 import "swiper/css/pagination";
-import StyledBadge from './StyledBadge';
 import AvatarOnline from './AvatarOnline';
-import { getOnlineUsers } from '../../store/actions/userActions';
 import { connect } from 'react-redux';
-import { useOutletContext } from 'react-router-dom';
+import { grey } from "@mui/material/colors";
 
 const AvatarCarousel = (props) => {
-    const { getOnlineUsersRequest, users } = props;
-    const connection = useOutletContext();
-    useEffect(() => {
-        connection.start()
-            .then(() => {
-                connection.on('GetClients', users => {
-                    getOnlineUsersRequest(users);
-                })
-            });
-    }, []);
-    console.log(users.data);
+    const { users } = props;
     return (
         <Row sx={{
             margin: "20px 0px",
         }}>
             <Swiper
-                slidesPerView={1}
+                spaceBetween={20}
+                style={{
+                    padding: "10px",
+                }}
+                slidesPerView={users.data.length > 4 ? 4 : users.data.length}
                 pagination={{
                     clickable: true,
                 }}
@@ -40,18 +29,20 @@ const AvatarCarousel = (props) => {
                         <SwiperSlide
                             key={index}
                             style={{
-                                padding: "5px 0px"
+                                margin: "0px",
                             }}
                         >
                             <Paper
                                 elevation={3} sx={{
-                                    padding: "5px 2px",
-                                    margin: "0px 4px",
+                                    padding: "5px",
                                     width: 70,
                                     display: 'flex',
                                     flexWrap: "wrap",
                                     justifyContent: "center",
-                                    textAlign: "center"
+                                    textAlign: "center",
+                                    borderRadius: "10px",
+                                    backgroundColor: grey[100],
+                                    boxShadow: `0 2px 4px ${grey[400]}`,
                                 }}>
                                 <AvatarOnline user={user} />
                                 <Typography sx={{
@@ -79,12 +70,5 @@ const mapStateToProps = (state) => {
         users: state.getOnlineUsersReducer,
     };
 };
-const mapDispatchToProps = (dispatch) => {
-    return {
-        getOnlineUsersRequest: (username) => {
-            dispatch(getOnlineUsers(username));
-        },
-    };
-};
 
-export default connect(mapStateToProps, mapDispatchToProps)(AvatarCarousel);
+export default connect(mapStateToProps)(AvatarCarousel);

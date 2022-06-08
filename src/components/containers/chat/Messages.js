@@ -6,17 +6,13 @@ const Messages = (props) => {
     const [chat, setChat] = useState(intialArray);
     const [user, setUser] = useState();
     useEffect(() => {
-        connection
-            .start()
-            .then(() => {
-                connection.on('ReceiveMessage', message => {
-                    setChat([...intialArray, message]);
-                    intialArray.push(message);
-                });
-                connection.on('GetClients', user => {
-                    setUser(user);
-                })
-            }).catch((error) => console.error(error));
+        connection.on('ReceiveMessage', message => {
+            setChat([...intialArray, message]);
+            intialArray.push(message);
+        });
+        connection.on('GetClients', user => {
+            setUser(user);
+        })
     }, [])
 
     return (

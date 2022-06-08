@@ -1,7 +1,7 @@
 import React from 'react'
 import Row from '../Item/Row'
 import ChatAvatar from './ChatAvatar'
-import { Grid } from '@mui/material'
+import { Grid, ListItem } from '@mui/material'
 import LinkFlex from '../Item/LinkFlex'
 import ChatNavButton from '../Item/ChatNavButton'
 import { BiSearch } from 'react-icons/bi'
@@ -10,6 +10,28 @@ import { AiOutlineVideoCamera } from 'react-icons/ai';
 import { RiUser2Line } from 'react-icons/ri'
 import { HiOutlineDotsHorizontal } from 'react-icons/hi'
 import { connect } from 'react-redux'
+const buttons = [
+    {
+        link: "/",
+        icon: <BiSearch />,
+    },
+    {
+        link: "/",
+        icon: <IoCallOutline />,
+    },
+    {
+        link: "/",
+        icon: <AiOutlineVideoCamera />,
+    },
+    {
+        link: "/",
+        icon: <RiUser2Line />,
+    },
+    {
+        link: "/",
+        icon: <HiOutlineDotsHorizontal />,
+    },
+]
 
 const ChatHeader = (props) => {
     const { user } = props;
@@ -29,31 +51,24 @@ const ChatHeader = (props) => {
                         width: '100%',
                         justifyContent: "end"
                     }}>
-                        <ChatNavButton>
-                            <LinkFlex to="/">
-                                <BiSearch />
-                            </LinkFlex>
-                        </ChatNavButton>
-                        <ChatNavButton>
-                            <LinkFlex to="/">
-                                <IoCallOutline />
-                            </LinkFlex>
-                        </ChatNavButton>
-                        <ChatNavButton>
-                            <LinkFlex to="/">
-                                <AiOutlineVideoCamera />
-                            </LinkFlex>
-                        </ChatNavButton>
-                        <ChatNavButton>
-                            <LinkFlex to="/">
-                                <RiUser2Line />
-                            </LinkFlex>
-                        </ChatNavButton>
-                        <ChatNavButton>
-                            <LinkFlex to="/">
-                                <HiOutlineDotsHorizontal />
-                            </LinkFlex>
-                        </ChatNavButton>
+                        {
+                            buttons.map((button, index) => (
+                                <LinkFlex
+                                    style={{
+                                        margin: "0px 5px",
+                                    }}
+                                    key={index}
+                                    to={button.link}
+                                >
+                                    <ChatNavButton
+                                        sx={{
+                                            fontSize: "20px",
+                                        }}>
+                                        {button.icon}
+                                    </ChatNavButton>
+                                </LinkFlex>
+                            ))
+                        }
                     </Row>
                 </nav>
             </Grid>

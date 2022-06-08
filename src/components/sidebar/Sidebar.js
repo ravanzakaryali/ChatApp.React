@@ -13,6 +13,21 @@ import LinkFlex from '../Item/LinkFlex';
 import { connect } from 'react-redux';
 import { BrokenImage } from '@mui/icons-material';
 
+const sideBarNav = [
+    {
+        link: "/",
+        icon: <IoChatbubbleEllipsesOutline />,
+    },
+    {
+        link: "/",
+        icon: <RiUser3Line />,
+    },
+    {
+        link: "settings",
+        icon: <AiOutlineSetting />,
+    },
+]
+
 const Sidebar = (props) => {
     const { avatar, name, surname } = props?.user?.data;
     return (
@@ -26,35 +41,29 @@ const Sidebar = (props) => {
             </VerticalItem>
             <VerticalItem sx={{ margin: "auto" }}>
                 <Nav >
-                    <ListItemButton>
-                        <LinkFlex to="/">
-                            <IoChatbubbleEllipsesOutline />
-                        </LinkFlex>
-                    </ListItemButton>
-                    <ListItemButton>
-                        <LinkFlex to="/">
-                            <RiUser3Line />
-                        </LinkFlex>
-                    </ListItemButton>
-                    <ListItemButton>
-                        <LinkFlex to="settings">
-                            <AiOutlineSetting />
-                        </LinkFlex>
-                    </ListItemButton>
+                    {
+                        sideBarNav.map((button, index) => (
+                            <LinkFlex to={button.link} key={index}>
+                                <ListItemButton>
+                                    {button.icon}
+                                </ListItemButton>
+                            </LinkFlex>
+                        ))
+                    }
                 </Nav>
             </VerticalItem>
             <VerticalItem>
                 <Nav orientation='vertical' >
-                    <ListItemButton>
-                        <LinkFlex to="/">
+                    <LinkFlex to="/">
+                        <ListItemButton>
                             <MdLanguage />
-                        </LinkFlex>
-                    </ListItemButton>
-                    <ListItemButton>
-                        <LinkFlex to="/">
+                        </ListItemButton>
+                    </LinkFlex>
+                    <LinkFlex to="/">
+                        <ListItemButton>
                             <HiOutlineMoon />
-                        </LinkFlex>
-                    </ListItemButton>
+                        </ListItemButton>
+                    </LinkFlex>
                     <ListItemButton>
                         <Avatar
 

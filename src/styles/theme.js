@@ -31,7 +31,7 @@ export const theme = createTheme({
                     borderRight: "5px white solid",
                 },
                 '&::-webkit-scrollbar-track': {
-                    backgroundColor: 'white',
+                    backgroundColor: grey[50],
                 },
                 '&::-webkit-scrollbar-thumb': {
                     borderRadius: '10px',
