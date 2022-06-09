@@ -10,14 +10,17 @@ import Col from '../../components/Item/Col';
 import { Grid } from '@mui/material';
 import ChatUsersSidebar from '../../components/Chats/ChatUsersSidebar';
 import { grey } from '@mui/material/colors';
+import { ThemeProvider } from '@emotion/react';
+import { theme } from '../../styles/theme';
 
 const Home = (props) => {
     return (
         <>
-            <Grid item xs={3}
+            <Grid item ba xs={3}
                 sx={{
-                    backgroundColor: grey[50],
-                    borderRight: '1px solid #e0e0e0',
+                    backgroundColor: "background.default",
+                    borderRight: `1px solid ${grey[400]}`,
+                    borderLeft: `1px solid ${grey[400]}`,
                 }}
             >
                 <ChatUsersSidebar />

@@ -7,10 +7,10 @@ const LinkFlex = styled(Link)(({ theme }) => ({
     color: "black",
     transition: "0.3s",
     textDecoration: "none",
-    // "&:hover": {
-    //     color: theme.palette.primary.main,
-    //     backgroundColor: grey[100]
-    // }
+    "&:hover": {
+        color: theme.palette.text.primary,
+        backgroundColor: theme.palette.secondary.main,
+    }
 }))
 
 

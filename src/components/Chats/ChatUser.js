@@ -19,12 +19,14 @@ const ChatUser = ({ user }) => {
                     />
                     <Row>
                         <ChatUserContent>
-                            <Typography>
-                                {user?.name}
+                            <Typography sx={{
+                                color: "text.primary",
+                            }}>
+                                {user?.name} {user?.surname}
                             </Typography>
                             <Typography
                                 sx={{
-                                    color: "gray"
+                                    color: "text.primary",
                                 }}
                             >
                                 {user?.message}

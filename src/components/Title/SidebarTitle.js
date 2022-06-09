@@ -10,7 +10,8 @@ const SidebarTitle = ({ title }) => {
         }} >
             <Typography variant='h2' sx={{
                 fontSize: "22px",
-                fontWeight: '500'
+                fontWeight: '500',
+                color: 'text.primary',
             }}>{title}</Typography>
         </Grid>
     )

@@ -1,13 +1,41 @@
 import { createTheme } from "@mui/material/styles";
-import { grey } from '@mui/material/colors';
+import { amber, deepOrange, grey } from '@mui/material/colors';
 
-export const theme = createTheme({
+export const getDesign = (mode) => ({
     palette: {
+        mode,
         primary: {
-            main: "#3f0d88",
-            light: "#681cc6"
-        }
+            ...amber,
+            ...(mode === 'dark' && {
+                main: grey[700],
+            }),
+        },
+        secondary: {
+            ...grey,
+            ...(mode === 'dark' && {
+                main: grey[800],
+            }),
+        },
+        ...(mode === 'dark' && {
+            background: {
+                default: grey[900],
+                paper: grey[900],
+            },
+        }),
+        text: {
+            ...(mode === 'light'
+                ? {
+                    primary: grey[900],
+                    secondary: grey[800],
+                }
+                : {
+                    primary: '#fff',
+                    secondary: grey[100],
+                }),
+        },
     },
+});
+export const theme = createTheme({
     components: {
         MuiListItemButton: {
             styleOverrides: {

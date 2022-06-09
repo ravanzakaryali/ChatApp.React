@@ -41,7 +41,7 @@ const AvatarCarousel = (props) => {
                                     justifyContent: "center",
                                     textAlign: "center",
                                     borderRadius: "10px",
-                                    backgroundColor: grey[100],
+                                    backgroundColor: 'background.paper',
                                     boxShadow: `0 2px 4px ${grey[400]}`,
                                 }}>
                                 <AvatarOnline user={user} />

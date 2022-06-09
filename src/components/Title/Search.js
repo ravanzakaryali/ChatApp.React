@@ -8,7 +8,8 @@ import { grey, blueGrey } from '@mui/material/colors';
 const Search = styled('div')(({ theme }) => ({
     position: 'relative',
     borderRadius: theme.shape.borderRadius,
-    backgroundColor: blueGrey[50],
+    backgroundColor: theme.palette.primary.main,
+    borderColor: theme.palette.text.primary,
     marginLeft: 0,
     width: '100%',
 }));
@@ -32,7 +33,7 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
         transition: theme.transitions.create('width'),
         width: '100%',
         '&::placeholder': {
-            color: 'black',
+            color: theme.palette.text.primary,
             opacity: '0.7'
         }
     },

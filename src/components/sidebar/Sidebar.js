@@ -27,7 +27,7 @@ const sideBarNav = [
         icon: <AiOutlineSetting />,
     },
 ]
-const sideBarBottom = [
+const sideBarNavBottom = [
     {
         link: "/",
         icon: <MdLanguage />,
@@ -42,18 +42,22 @@ const Sidebar = (props) => {
     return (
         <VerticalList>
             <VerticalItem>
-                <ListItemButton>
-                    <LinkFlex to="/">
+                <LinkFlex to="/">
+                    <ListItemButton sx={{
+                        color: 'text.primary',
+                    }}>
                         <DiSenchatouch />
-                    </LinkFlex>
-                </ListItemButton>
+                    </ListItemButton>
+                </LinkFlex>
             </VerticalItem>
             <VerticalItem sx={{ margin: "auto" }}>
                 <Nav >
                     {
                         sideBarNav.map((button, index) => (
                             <LinkFlex to={button.link} key={index}>
-                                <ListItemButton>
+                                <ListItemButton sx={{
+                                    color: 'text.primary',
+                                }}>
                                     {button.icon}
                                 </ListItemButton>
                             </LinkFlex>
@@ -64,9 +68,11 @@ const Sidebar = (props) => {
             <VerticalItem>
                 <Nav orientation='vertical' >
                     {
-                        sideBarBottom.map((button, index) => (
+                        sideBarNavBottom.map((button, index) => (
                             <LinkFlex to={button.link} key={index}>
-                                <ListItemButton>
+                                <ListItemButton sx={{
+                                    color: 'text.primary',
+                                }}>
                                     {button.icon}
                                 </ListItemButton>
                             </LinkFlex>
