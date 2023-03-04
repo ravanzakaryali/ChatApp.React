@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect } from 'react'
 import { connect } from 'react-redux'
 import { useOutletContext, useParams } from 'react-router-dom'
-import { getMessages, sendMessageSocket, socketMessage } from '../../store/actions/chatAction'
+import { getMessages, socketMessage } from '../../store/actions/chatAction'
 import Scroll from '../Item/Scroll'
 import ConversationMessage from './ConversationMessage'
 

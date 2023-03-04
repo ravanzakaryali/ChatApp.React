@@ -43,3 +43,4 @@ export const GET_LOGIN_USER_SUCCESS = "GET_LOGIN_USER_SUCCESS";
 export const GET_LOGIN_USER_ERROR = "GET_LOGIN_USER_ERROR";
 //#endregion
 
+export const DARK_LIGHT_MODE = "DARK_LIGHT_MODE";

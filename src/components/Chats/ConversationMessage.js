@@ -43,14 +43,13 @@ const ConversationMessage = ({ position, user, message }) => {
                     backgroundColor={grey[200]}
                     borderRadius="10px 10px 0px 10px"
                     marginBottom="10px"
-
                 >
                     <Row sx={{
                         margin: '5px 0px'
                     }}>
                         <div>
                             {message?.content}
-                            <ChatSenderDate>
+                            <ChatSenderDate >
                                 <AiOutlineClockCircle />
                                 {message?.senderDate}
                             </ChatSenderDate>
@@ -70,7 +69,7 @@ const ConversationMessage = ({ position, user, message }) => {
                         marginTop: 'auto',
                     }}
                 />
-            </MessageList>
+            </MessageList >
 
     )
 }

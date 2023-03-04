@@ -14,9 +14,14 @@ import Index from '../pages/Index'
 import { ThemeProvider } from '@emotion/react'
 import { getDesign } from '../styles/theme'
 
-const theme = createTheme(getDesign(window.matchMedia("(prefers-color-scheme:dark)").matches ? 'dark' : 'light'));
+const theme = createTheme(getDesign(
+    window.matchMedia("(prefers-color-scheme:dark)").matches ?
+        'light' :
+        'light'
+));
 
 const App = () => {
+
     return (
         <BrowserRouter>
             <Provider store={store}>

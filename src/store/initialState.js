@@ -47,4 +47,7 @@ export default {
         loading: false,
         error: ''
     },
+    darkLightMode: {
+        data: null,
+    },
 }

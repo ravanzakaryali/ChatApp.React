@@ -14,6 +14,9 @@ import {
     sendMessageReducer,
     socketMessageReducer
 } from './reducers/chatReducers';
+import {
+    darkLightModeReducer
+} from './reducers/commonReducers';
 
 const rootReducer = combineReducers({
     loginReducer,
@@ -24,6 +27,7 @@ const rootReducer = combineReducers({
     sendMessageReducer,
     socketMessageReducer,
     getLoginUserReducer,
-    getOnlineUsersReducer
-})
+    getOnlineUsersReducer,
+    darkLightModeReducer,
+});
 export default rootReducer;

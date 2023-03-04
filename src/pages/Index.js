@@ -6,8 +6,8 @@ import Row from '../components/Item/Row';
 import Sidebar from '../components/sidebar/Sidebar';
 import { getLoginUser, getOnlineUsers } from '../store/actions/userActions';
 
-const Index = (porps) => {
-    const { getLoginUserRequest, getOnlineUsersRequest, user } = porps;
+const Index = (props) => {
+    const { getLoginUserRequest, getOnlineUsersRequest } = props;
     const connection = useOutletContext();
     useEffect(() => {
         getLoginUserRequest();
@@ -20,7 +20,7 @@ const Index = (porps) => {
     return (
         <Row container>
             <Grid item xs={.5}>
-                <Sidebar />
+                <Sidebar context={props.context} />
             </Grid>
             <Outlet context={useOutletContext()} />
         </Row>

@@ -16,7 +16,7 @@ import { theme } from '../../styles/theme';
 const Home = (props) => {
     return (
         <>
-            <Grid item ba xs={3}
+            <Grid item xs={3}
                 sx={{
                     backgroundColor: "background.default",
                     borderRight: `1px solid ${grey[400]}`,

@@ -8,7 +8,7 @@ import { grey, blueGrey } from '@mui/material/colors';
 const Search = styled('div')(({ theme }) => ({
     position: 'relative',
     borderRadius: theme.shape.borderRadius,
-    backgroundColor: theme.palette.primary.main,
+    backgroundColor: theme.palette.primary,
     borderColor: theme.palette.text.primary,
     marginLeft: 0,
     width: '100%',

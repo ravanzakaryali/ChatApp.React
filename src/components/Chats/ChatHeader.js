@@ -62,7 +62,10 @@ const ChatHeader = (props) => {
                                 >
                                     <ChatNavButton
                                         sx={{
-                                            fontSize: "20px",
+                                            fontSize: "20px !important",
+                                            color: "text.primary",
+                                            padding: 0,
+                                            justifyContent: "center",
                                         }}>
                                         {button.icon}
                                     </ChatNavButton>

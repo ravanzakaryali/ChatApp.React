@@ -9,6 +9,7 @@ import { useForm } from 'react-hook-form'
 import { sendMessage } from '../../store/actions/chatAction'
 import { connect } from 'react-redux'
 import { useOutletContext } from 'react-router-dom'
+import { deepPurple } from '@mui/material/colors';
 const SendMessage = (props) => {
     const connection = useOutletContext();
     const { sendMessageRequest, sendMessagesResult, user } = props;

@@ -1,11 +1,11 @@
 import { createTheme } from "@mui/material/styles";
-import { amber, deepOrange, grey } from '@mui/material/colors';
+import { deepPurple, grey } from '@mui/material/colors';
 
 export const getDesign = (mode) => ({
     palette: {
         mode,
         primary: {
-            ...amber,
+            ...deepPurple,
             ...(mode === 'dark' && {
                 main: grey[700],
             }),

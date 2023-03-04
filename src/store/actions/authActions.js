@@ -44,6 +44,7 @@ export function authRegister(registerState) {
         axios.post(url, registerState, header)
             .then((res) => {
                 dispatch(registerSuccess(res.data));
+                console.log(res.data);
             }).catch((error) => {
                 dispatch(registerError(error));
             })

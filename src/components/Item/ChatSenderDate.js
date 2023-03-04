@@ -3,10 +3,10 @@ import { grey } from '@mui/material/colors';
 
 const ChatSenderDate = styled('span')(({ theme }) => ({
     display: 'flex',
-    color: grey[200],
+    color: grey[500],
     fontSize: 10,
     alignItems: 'center',
-    justifyContent: 'end'
+    justifyContent: 'end',
 }))
 
 
